@@ -1,575 +1,736 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - NakedTurtle IPTV</title>
-    <meta name="description"
-        content="Privacy Policy for NakedTurtle IPTV. Learn how we collect, use, and protect your personal information.">
+    <meta
+      name="description"
+      content="Privacy Policy for NakedTurtle IPTV. Learn how we collect, use, and protect your personal information."
+    />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
     <!-- Billgang Product Embed Script -->
     <script src="https://embed.billgang.store/embed.js"></script>
 
     <style>
-        /* Privacy Policy Page Specific Styles */
-        .privacy-hero {
-            padding: var(--spacing-3xl) 0;
+      /* Privacy Policy Page Specific Styles */
+      .privacy-hero {
+        padding: var(--spacing-3xl) 0;
 
-            text-align: center;
-            margin-top: 150px;
-        }
+        text-align: center;
+        margin-top: 150px;
+      }
 
-        .privacy-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 60%);
-            z-index: -1;
-        }
+      .privacy-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at top right,
+            rgba(16, 185, 129, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(139, 92, 246, 0.1),
+            transparent 60%
+          );
+        z-index: -1;
+      }
 
+      .privacy-hero h1 {
+        font-size: var(--font-size-4xl);
+        font-weight: 800;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .privacy-hero p {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-muted);
+        max-width: 700px;
+        margin: 0 auto var(--spacing-xl);
+      }
+
+      .privacy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-2xl) 0;
+        margin-top: -250px;
+      }
+
+      .privacy-section {
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .privacy-section h2 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-primary);
+      }
+
+      .privacy-section h3 {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        margin: var(--spacing-lg) 0 var(--spacing-sm);
+      }
+
+      .privacy-section p {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-muted);
+        line-height: 1.7;
+      }
+
+      .privacy-section ul,
+      .privacy-section ol {
+        margin-bottom: var(--spacing-md);
+        padding-left: var(--spacing-lg);
+        color: var(--color-text-muted);
+      }
+
+      .privacy-section li {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.7;
+      }
+
+      .privacy-section strong {
+        color: var(--color-text);
+        font-weight: 600;
+      }
+
+      .privacy-section a {
+        color: var(--color-primary);
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      .privacy-section a:hover {
+        color: var(--color-primary-light);
+      }
+
+      .privacy-updated {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        text-align: center;
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .privacy-contact {
+        background-color: rgba(24, 24, 27, 0.3);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
+        text-align: center;
+      }
+
+      .privacy-contact h3 {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .privacy-contact p {
+        color: var(--color-text-muted);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .table-container {
+        overflow-x: auto;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: var(--spacing-md);
+      }
+
+      th,
+      td {
+        padding: var(--spacing-sm) var(--spacing-md);
+        text-align: left;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      th {
+        background-color: rgba(24, 24, 27, 0.5);
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      td {
+        color: var(--color-text-muted);
+      }
+
+      @media (max-width: 768px) {
         .privacy-hero h1 {
-            font-size: var(--font-size-4xl);
-            font-weight: 800;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .privacy-hero p {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-muted);
-            max-width: 700px;
-            margin: 0 auto var(--spacing-xl);
-        }
-
-        .privacy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-2xl) 0;
-            margin-top: -250px;
-        }
-
-        .privacy-section {
-            margin-bottom: var(--spacing-2xl);
+          font-size: var(--font-size-3xl);
         }
 
         .privacy-section h2 {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-primary);
+          font-size: var(--font-size-xl);
         }
 
         .privacy-section h3 {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            margin: var(--spacing-lg) 0 var(--spacing-sm);
+          font-size: var(--font-size-lg);
         }
-
-        .privacy-section p {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
-
-        .privacy-section ul,
-        .privacy-section ol {
-            margin-bottom: var(--spacing-md);
-            padding-left: var(--spacing-lg);
-            color: var(--color-text-muted);
-        }
-
-        .privacy-section li {
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.7;
-        }
-
-        .privacy-section strong {
-            color: var(--color-text);
-            font-weight: 600;
-        }
-
-        .privacy-section a {
-            color: var(--color-primary);
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-
-        .privacy-section a:hover {
-            color: var(--color-primary-light);
-        }
-
-        .privacy-updated {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-            text-align: center;
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .privacy-contact {
-            background-color: rgba(24, 24, 27, 0.3);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
-            text-align: center;
-        }
-
-        .privacy-contact h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .privacy-contact p {
-            color: var(--color-text-muted);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: var(--spacing-md);
-        }
-
-        th,
-        td {
-            padding: var(--spacing-sm) var(--spacing-md);
-            text-align: left;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        th {
-            background-color: rgba(24, 24, 27, 0.5);
-            font-weight: 600;
-            color: var(--color-text);
-        }
-
-        td {
-            color: var(--color-text-muted);
-        }
-
-        @media (max-width: 768px) {
-            .privacy-hero h1 {
-                font-size: var(--font-size-3xl);
-            }
-
-            .privacy-section h2 {
-                font-size: var(--font-size-xl);
-            }
-
-            .privacy-section h3 {
-                font-size: var(--font-size-lg);
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Header/Navigation -->
     <div class="w-full h-18">
+      <header class="navbar fixed top-0 left-0 right-0 z-50">
+        <div class="container">
+          <div class="nav-content">
+            <!-- Logo -->
+            <a href="/">
+              <img
+                src="./assets/images/UpdatedLogo.svg"
+                alt="NakedTurtle Logo"
+                width="200"
+                height="40"
+              />
+            </a>
 
-        <header class="navbar fixed top-0 left-0 right-0 z-50">
-            <div class="container">
-                <div class="nav-content">
-                    <!-- Logo -->
-                    <a href="/">
-                        <img src="./assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" width="200" height="40" />
-                    </a>
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+              <a href="./index.html#features">Features</a>
+              <a href="./index.html#pricing">Pricing</a>
+              <a href="./index.html#faq">FAQ</a>
+              <a href="contact.html">Contact</a>
+              <a href="installation.html">Installation Guides</a>
+            </nav>
 
-                    <!-- Desktop Navigation -->
-                    <nav class="nav-links">
-                        <a href="./index.html#features">Features</a>
-                        <a href="./index.html#pricing">Pricing</a>
-                        <a href="./index.html#faq">FAQ</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="installation.html">Installation Guides</a>
-                    </nav>
-
-                    <!-- Buttons -->
-                    <div class="nav-actions">
-                        <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn">Free Trial</a>
-                        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-                            <span id="menu-icon">☰</span>
-                        </button>
-                    </div>
-                </div>
+            <!-- Buttons -->
+            <div class="nav-actions">
+              <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn"
+                >Free Trial</a
+              >
+              <button
+                class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Toggle menu"
+              >
+                <span id="menu-icon">☰</span>
+              </button>
             </div>
+          </div>
+        </div>
 
-            <!-- Mobile Navigation -->
-            <div class="mobile-menu" id="mobileMenu">
-                <nav>
-                    <a href="./index.html#features" onclick="toggleMenu()">Features</a>
-                    <a href="./index.html#pricing" onclick="toggleMenu()">Pricing</a>
-                    <a href="./index.html#faq" onclick="toggleMenu()">FAQ</a>
-                    <a href="contact.html" onclick="toggleMenu()">Contact</a>
-                    <a href="installation.html" onclick="toggleMenu()">Installation Guides</a>
-                </nav>
-            </div>
-        </header>
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu" id="mobileMenu">
+          <nav>
+            <a href="./index.html#features" onclick="toggleMenu()">Features</a>
+            <a href="./index.html#pricing" onclick="toggleMenu()">Pricing</a>
+            <a href="./index.html#faq" onclick="toggleMenu()">FAQ</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+            <a href="installation.html" onclick="toggleMenu()"
+              >Installation Guides</a
+            >
+          </nav>
+        </div>
+      </header>
     </div>
     <main>
-        <div class="img-section"><!-- Privacy Hero Section -->
-            <section class="privacy-hero">
-                <div class="container">
-                    <div class="badge">LEGAL</div>
-                    <h1>Privacy Policy</h1>
-                    <p>Learn how we collect, use, and protect your personal information when you use NakedTurtle IPTV
-                        services.</p>
-                </div>
-            </section>
-        </div>
-        <!-- Privacy Content -->
-        <section class="privacy-content">
-            <div class="container">
-                <p class="privacy-updated">Last Updated: May 1, 2025</p>
-
-                <div class="privacy-section">
-                    <h2>1. Introduction</h2>
-                    <p>NakedTurtle IPTV ("we", "our", or "us") is committed to protecting your privacy. This Privacy
-                        Policy explains how we collect, use, disclose, and safeguard your information when you use our
-                        website and services.</p>
-
-                    <p>We reserve the right to make changes to this Privacy Policy at any time and for any reason. We
-                        will alert you about any changes by updating the "Last Updated" date of this Privacy Policy. You
-                        are encouraged to periodically review this Privacy Policy to stay informed of updates.</p>
-
-                    <p>By using our service, you are consenting to the collection, storage, use, and disclosure of your
-                        personal information as described in this Privacy Policy.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>2. Information We Collect</h2>
-                    <p>We may collect information about you in a variety of ways. The information we may collect
-                        includes:</p>
-
-                    <h3>2.1 Personal Data</h3>
-                    <p>Personally identifiable information that you voluntarily provide to us when registering for our
-                        service, such as:</p>
-                    <ul>
-                        <li>Email address</li>
-                        <li>First and last name</li>
-                        <li>Payment information (processed through secure third-party payment processors)</li>
-                        <li>Username and password</li>
-                        <li>IP address</li>
-                    </ul>
-
-                    <h3>2.2 Usage Data</h3>
-                    <p>Information our servers automatically collect when you access our service, such as:</p>
-                    <ul>
-                        <li>Your device's IP address</li>
-                        <li>Browser type and version</li>
-                        <li>Operating system</li>
-                        <li>The pages or features of our service that you browse and the time spent on those pages or
-                            features</li>
-                        <li>The frequency with which you use our service</li>
-                        <li>Other diagnostic data</li>
-                    </ul>
-
-                    <h3>2.3 Cookies and Tracking Technologies</h3>
-                    <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies to help
-                        customize our website and improve your experience. For more information about how we use
-                        cookies, please refer to our Cookie Policy section below.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>3. How We Use Your Information</h2>
-                    <p>We may use the information we collect about you for various purposes, including to:</p>
-                    <ul>
-                        <li>Create and manage your account</li>
-                        <li>Process payments and subscriptions</li>
-                        <li>Provide and maintain our service</li>
-                        <li>Notify you about changes to our service</li>
-                        <li>Allow you to participate in interactive features of our service when you choose to do so
-                        </li>
-                        <li>Provide customer support</li>
-                        <li>Monitor the usage of our service</li>
-                        <li>Detect, prevent, and address technical issues</li>
-                        <li>Improve our website and services</li>
-                        <li>Send you promotional emails about new products, special offers, or other information we
-                            think you may find interesting</li>
-                        <li>Enforce our terms, conditions, and policies</li>
-                    </ul>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>4. Disclosure of Your Information</h2>
-                    <p>We may share information we have collected about you in certain situations. Your information may
-                        be disclosed as follows:</p>
-
-                    <h3>4.1 By Law or to Protect Rights</h3>
-                    <p>If we believe the release of information about you is necessary to respond to legal process, to
-                        investigate or remedy potential violations of our policies, or to protect the rights, property,
-                        and safety of others, we may share your information as permitted or required by any applicable
-                        law, rule, or regulation.</p>
-
-                    <h3>4.2 Third-Party Service Providers</h3>
-                    <p>We may share your information with third-party service providers to:</p>
-                    <ul>
-                        <li>Facilitate our service</li>
-                        <li>Provide the service on our behalf</li>
-                        <li>Perform service-related services</li>
-                        <li>Assist us in analyzing how our service is used</li>
-                    </ul>
-                    <p>These third parties have access to your personal information only to perform these tasks on our
-                        behalf and are obligated not to disclose or use it for any other purpose.</p>
-
-                    <h3>4.3 Business Transfers</h3>
-                    <p>If we are involved in a merger, acquisition, or asset sale, your personal information may be
-                        transferred. We will provide notice before your personal information is transferred and becomes
-                        subject to a different Privacy Policy.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>5. Security of Your Information</h2>
-                    <p>We use administrative, technical, and physical security measures to help protect your personal
-                        information. While we have taken reasonable steps to secure the personal information you provide
-                        to us, please be aware that despite our efforts, no security measures are perfect or
-                        impenetrable, and no method of data transmission can be guaranteed against any interception or
-                        other type of misuse.</p>
-
-                    <p>Any information disclosed online is vulnerable to interception and misuse by unauthorized
-                        parties. Therefore, we cannot guarantee complete security if you provide personal information.
-                    </p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>6. Cookie Policy</h2>
-                    <p>Cookies are small files that a site or its service provider transfers to your device's hard drive
-                        through your web browser that enables the site's or service provider's systems to recognize your
-                        browser and capture and remember certain information.</p>
-
-                    <h3>6.1 Types of Cookies We Use</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Type of Cookie</th>
-                                    <th>Purpose</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Session Cookies</td>
-                                    <td>These are temporary cookies that expire when you close your browser. They enable
-                                        our website to recognize you as you navigate between pages.</td>
-                                </tr>
-                                <tr>
-                                    <td>Persistent Cookies</td>
-                                    <td>These remain on your device until they expire or you delete them. They enable
-                                        our website to remember your preferences for your next visit.</td>
-                                </tr>
-                                <tr>
-                                    <td>Necessary Cookies</td>
-                                    <td>These cookies are essential for you to browse the website and use its features,
-                                        such as accessing secure areas of the site.</td>
-                                </tr>
-                                <tr>
-                                    <td>Preferences Cookies</td>
-                                    <td>These cookies allow our website to remember choices you have made in the past,
-                                        like what language you prefer or what your user name and password are so you can
-                                        automatically log in.</td>
-                                </tr>
-                                <tr>
-                                    <td>Analytics Cookies</td>
-                                    <td>These cookies collect information about how you use a website, like which pages
-                                        you visited and which links you clicked on.</td>
-                                </tr>
-                                <tr>
-                                    <td>Marketing Cookies</td>
-                                    <td>These cookies track your online activity to help advertisers deliver more
-                                        relevant advertising or to limit how many times you see an ad.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <h3>6.2 Your Cookie Choices</h3>
-                    <p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to
-                        set your browser to remove or reject browser cookies. Please note that if you choose to remove
-                        or reject cookies, this could affect the availability and functionality of our website.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>7. Children's Privacy</h2>
-                    <p>Our service is not intended for use by children under the age of 18. We do not knowingly collect
-                        personally identifiable information from children under 18. If you are a parent or guardian and
-                        you are aware that your child has provided us with personal information, please contact us. If
-                        we become aware that we have collected personal information from children without verification
-                        of parental consent, we take steps to remove that information from our servers.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>8. Your Rights</h2>
-                    <p>Depending on your location, you may have certain rights regarding your personal information,
-                        including:</p>
-
-                    <h3>8.1 Access and Update</h3>
-                    <p>You have the right to access and update the personal information we hold about you. You can
-                        review and change your personal information by logging into your account and visiting your
-                        account profile page.</p>
-
-                    <h3>8.2 Deletion</h3>
-                    <p>You have the right to request the deletion of your personal information. Upon your request to
-                        terminate your account, we will deactivate or delete your account and information from our
-                        active databases. However, some information may be retained in our files to prevent fraud,
-                        troubleshoot problems, assist with any investigations, enforce our Terms of Use, and/or comply
-                        with legal requirements.</p>
-
-                    <h3>8.3 Object and Restrict</h3>
-                    <p>You have the right to object to our processing of your personal data and to restrict our
-                        processing of your personal data under certain circumstances.</p>
-
-                    <h3>8.4 Data Portability</h3>
-                    <p>You have the right to receive your personal information in a structured, commonly used, and
-                        machine-readable format.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>9. Third-Party Websites</h2>
-                    <p>Our website may contain links to third-party websites and applications of interest, including
-                        advertisements and external services, that are not affiliated with us. Once you have used these
-                        links to leave our website, any information you provide to these third parties is not covered by
-                        this Privacy Policy, and we cannot guarantee the safety and privacy of your information. Before
-                        visiting and providing any information to any third-party websites, you should inform yourself
-                        of the privacy policies and practices of the third party responsible for that website, and
-                        should take those steps necessary to, in your discretion, protect the privacy of your
-                        information.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>10. International Data Transfers</h2>
-                    <p>Your information, including personal information, may be transferred to — and maintained on —
-                        computers located outside of your state, province, country, or other governmental jurisdiction
-                        where the data protection laws may differ from those of your jurisdiction.</p>
-
-                    <p>If you are located outside the United States and choose to provide information to us, please note
-                        that we transfer the information, including personal information, to the United States and
-                        process it there.</p>
-
-                    <p>Your consent to this Privacy Policy followed by your submission of such information represents
-                        your agreement to that transfer.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>11. Changes to This Privacy Policy</h2>
-                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting
-                        the new Privacy Policy on this page and updating the "Last Updated" date at the top of this
-                        Privacy Policy.</p>
-
-                    <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this
-                        Privacy Policy are effective when they are posted on this page.</p>
-                </div>
-
-                <div class="privacy-contact">
-                    <h3>Questions About Our Privacy Policy?</h3>
-                    <p>If you have any questions about this Privacy Policy, please contact us at <a
-                            href="mailto:privacy@nakedturtle.com">privacy@nakedturtle.com</a> or through our <a
-                            href="contact.html">contact page</a>.</p>
-                </div>
-            </div>
+      <div class="img-section">
+        <!-- Privacy Hero Section -->
+        <section class="privacy-hero">
+          <div class="container">
+            <div class="badge">LEGAL</div>
+            <h1>Privacy Policy</h1>
+            <p>
+              Learn how we collect, use, and protect your personal information
+              when you use NakedTurtle IPTV services.
+            </p>
+          </div>
         </section>
+      </div>
+      <!-- Privacy Content -->
+      <section class="privacy-content">
+        <div class="container">
+          <p class="privacy-updated">Last Updated: May 1, 2025</p>
+
+          <div class="privacy-section">
+            <h2>1. Introduction</h2>
+            <p>
+              NakedTurtle IPTV ("we", "our", or "us") is committed to protecting
+              your privacy. This Privacy Policy explains how we collect, use,
+              disclose, and safeguard your information when you use our website
+              and services.
+            </p>
+
+            <p>
+              We reserve the right to make changes to this Privacy Policy at any
+              time and for any reason. We will alert you about any changes by
+              updating the "Last Updated" date of this Privacy Policy. You are
+              encouraged to periodically review this Privacy Policy to stay
+              informed of updates.
+            </p>
+
+            <p>
+              By using our service, you are consenting to the collection,
+              storage, use, and disclosure of your personal information as
+              described in this Privacy Policy.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>2. Information We Collect</h2>
+            <p>
+              We may collect information about you in a variety of ways. The
+              information we may collect includes:
+            </p>
+
+            <h3>2.1 Personal Data</h3>
+            <p>
+              Personally identifiable information that you voluntarily provide
+              to us when registering for our service, such as:
+            </p>
+            <ul>
+              <li>Email address</li>
+              <li>First and last name</li>
+              <li>
+                Payment information (processed through secure third-party
+                payment processors)
+              </li>
+              <li>Username and password</li>
+              <li>IP address</li>
+            </ul>
+
+            <h3>2.2 Usage Data</h3>
+            <p>
+              Information our servers automatically collect when you access our
+              service, such as:
+            </p>
+            <ul>
+              <li>Your device's IP address</li>
+              <li>Browser type and version</li>
+              <li>Operating system</li>
+              <li>
+                The pages or features of our service that you browse and the
+                time spent on those pages or features
+              </li>
+              <li>The frequency with which you use our service</li>
+              <li>Other diagnostic data</li>
+            </ul>
+
+            <h3>2.3 Cookies and Tracking Technologies</h3>
+            <p>
+              We may use cookies, web beacons, tracking pixels, and other
+              tracking technologies to help customize our website and improve
+              your experience. For more information about how we use cookies,
+              please refer to our Cookie Policy section below.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>3. How We Use Your Information</h2>
+            <p>
+              We may use the information we collect about you for various
+              purposes, including to:
+            </p>
+            <ul>
+              <li>Create and manage your account</li>
+              <li>Process payments and subscriptions</li>
+              <li>Provide and maintain our service</li>
+              <li>Notify you about changes to our service</li>
+              <li>
+                Allow you to participate in interactive features of our service
+                when you choose to do so
+              </li>
+              <li>Provide customer support</li>
+              <li>Monitor the usage of our service</li>
+              <li>Detect, prevent, and address technical issues</li>
+              <li>Improve our website and services</li>
+              <li>
+                Send you promotional emails about new products, special offers,
+                or other information we think you may find interesting
+              </li>
+              <li>Enforce our terms, conditions, and policies</li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h2>4. Disclosure of Your Information</h2>
+            <p>
+              We may share information we have collected about you in certain
+              situations. Your information may be disclosed as follows:
+            </p>
+
+            <h3>4.1 By Law or to Protect Rights</h3>
+            <p>
+              If we believe the release of information about you is necessary to
+              respond to legal process, to investigate or remedy potential
+              violations of our policies, or to protect the rights, property,
+              and safety of others, we may share your information as permitted
+              or required by any applicable law, rule, or regulation.
+            </p>
+
+            <h3>4.2 Third-Party Service Providers</h3>
+            <p>
+              We may share your information with third-party service providers
+              to:
+            </p>
+            <ul>
+              <li>Facilitate our service</li>
+              <li>Provide the service on our behalf</li>
+              <li>Perform service-related services</li>
+              <li>Assist us in analyzing how our service is used</li>
+            </ul>
+            <p>
+              These third parties have access to your personal information only
+              to perform these tasks on our behalf and are obligated not to
+              disclose or use it for any other purpose.
+            </p>
+
+            <h3>4.3 Business Transfers</h3>
+            <p>
+              If we are involved in a merger, acquisition, or asset sale, your
+              personal information may be transferred. We will provide notice
+              before your personal information is transferred and becomes
+              subject to a different Privacy Policy.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>5. Security of Your Information</h2>
+            <p>
+              We use administrative, technical, and physical security measures
+              to help protect your personal information. While we have taken
+              reasonable steps to secure the personal information you provide to
+              us, please be aware that despite our efforts, no security measures
+              are perfect or impenetrable, and no method of data transmission
+              can be guaranteed against any interception or other type of
+              misuse.
+            </p>
+
+            <p>
+              Any information disclosed online is vulnerable to interception and
+              misuse by unauthorized parties. Therefore, we cannot guarantee
+              complete security if you provide personal information.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>6. Cookie Policy</h2>
+            <p>
+              Cookies are small files that a site or its service provider
+              transfers to your device's hard drive through your web browser
+              that enables the site's or service provider's systems to recognize
+              your browser and capture and remember certain information.
+            </p>
+
+            <h3>6.1 Types of Cookies We Use</h3>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type of Cookie</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Session Cookies</td>
+                    <td>
+                      These are temporary cookies that expire when you close
+                      your browser. They enable our website to recognize you as
+                      you navigate between pages.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Persistent Cookies</td>
+                    <td>
+                      These remain on your device until they expire or you
+                      delete them. They enable our website to remember your
+                      preferences for your next visit.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Necessary Cookies</td>
+                    <td>
+                      These cookies are essential for you to browse the website
+                      and use its features, such as accessing secure areas of
+                      the site.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Preferences Cookies</td>
+                    <td>
+                      These cookies allow our website to remember choices you
+                      have made in the past, like what language you prefer or
+                      what your user name and password are so you can
+                      automatically log in.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Analytics Cookies</td>
+                    <td>
+                      These cookies collect information about how you use a
+                      website, like which pages you visited and which links you
+                      clicked on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Marketing Cookies</td>
+                    <td>
+                      These cookies track your online activity to help
+                      advertisers deliver more relevant advertising or to limit
+                      how many times you see an ad.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>6.2 Your Cookie Choices</h3>
+            <p>
+              Most web browsers are set to accept cookies by default. If you
+              prefer, you can usually choose to set your browser to remove or
+              reject browser cookies. Please note that if you choose to remove
+              or reject cookies, this could affect the availability and
+              functionality of our website.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>7. Children's Privacy</h2>
+            <p>
+              Our service is not intended for use by children under the age of
+              18. We do not knowingly collect personally identifiable
+              information from children under 18. If you are a parent or
+              guardian and you are aware that your child has provided us with
+              personal information, please contact us. If we become aware that
+              we have collected personal information from children without
+              verification of parental consent, we take steps to remove that
+              information from our servers.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>8. Your Rights</h2>
+            <p>
+              Depending on your location, you may have certain rights regarding
+              your personal information, including:
+            </p>
+
+            <h3>8.1 Access and Update</h3>
+            <p>
+              You have the right to access and update the personal information
+              we hold about you. You can review and change your personal
+              information by logging into your account and visiting your account
+              profile page.
+            </p>
+
+            <h3>8.2 Deletion</h3>
+            <p>
+              You have the right to request the deletion of your personal
+              information. Upon your request to terminate your account, we will
+              deactivate or delete your account and information from our active
+              databases. However, some information may be retained in our files
+              to prevent fraud, troubleshoot problems, assist with any
+              investigations, enforce our Terms of Use, and/or comply with legal
+              requirements.
+            </p>
+
+            <h3>8.3 Object and Restrict</h3>
+            <p>
+              You have the right to object to our processing of your personal
+              data and to restrict our processing of your personal data under
+              certain circumstances.
+            </p>
+
+            <h3>8.4 Data Portability</h3>
+            <p>
+              You have the right to receive your personal information in a
+              structured, commonly used, and machine-readable format.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>9. Third-Party Websites</h2>
+            <p>
+              Our website may contain links to third-party websites and
+              applications of interest, including advertisements and external
+              services, that are not affiliated with us. Once you have used
+              these links to leave our website, any information you provide to
+              these third parties is not covered by this Privacy Policy, and we
+              cannot guarantee the safety and privacy of your information.
+              Before visiting and providing any information to any third-party
+              websites, you should inform yourself of the privacy policies and
+              practices of the third party responsible for that website, and
+              should take those steps necessary to, in your discretion, protect
+              the privacy of your information.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>10. International Data Transfers</h2>
+            <p>
+              Your information, including personal information, may be
+              transferred to — and maintained on — computers located outside of
+              your state, province, country, or other governmental jurisdiction
+              where the data protection laws may differ from those of your
+              jurisdiction.
+            </p>
+
+            <p>
+              If you are located outside the United States and choose to provide
+              information to us, please note that we transfer the information,
+              including personal information, to the United States and process
+              it there.
+            </p>
+
+            <p>
+              Your consent to this Privacy Policy followed by your submission of
+              such information represents your agreement to that transfer.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2>11. Changes to This Privacy Policy</h2>
+            <p>
+              We may update our Privacy Policy from time to time. We will notify
+              you of any changes by posting the new Privacy Policy on this page
+              and updating the "Last Updated" date at the top of this Privacy
+              Policy.
+            </p>
+
+            <p>
+              You are advised to review this Privacy Policy periodically for any
+              changes. Changes to this Privacy Policy are effective when they
+              are posted on this page.
+            </p>
+          </div>
+
+          <div class="privacy-contact">
+            <h3>Questions About Our Privacy Policy?</h3>
+            <p>
+              If you have any questions about this Privacy Policy, please
+              contact us at
+              <a href="mailto:privacy@nakedturtle.com"
+                >privacy@nakedturtle.com</a
+              >
+              or through our <a href="contact.html">contact page</a>.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <!-- Column 1: Branding -->
-            <div class="footer-section">
-                <img src="/assets/images/UpdatedLogo.svg" alt="" width="250">
-                <p>The ultimate IPTV solution for all your entertainment needs.</p>
-                <a href="https://t.me/TurtleIPTV_Bot">
-                    <img src="/assets/images/telegram.svg" alt="Telegram" class="social-icon" />
-                </a>
-            </div>
-
-            <!-- Column 2: Quick Links -->
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#pricing">Pricing</a></li>
-                    <li><a href="./index.html#features">Features</a></li>
-                    <li><a href="./index.html#faq">FAQ</a></li>
-                    <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
-                    <li><a href="installation.html">Installation Guides</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Contact & Legal -->
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>support@nakedturtleiptv.com</p>
-                <p>24/7 Live Chat Support</p>
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="setup.html">Set Up</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Newsletter -->
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Get IPTV news & deals in your inbox:</p>
-                <form onsubmit="handleSubscribe(event)">
-                    <div class="newsletter">
-                        <input type="email" id="email" placeholder="Your email" required />
-                        <button type="submit">&#8594;</button>
-                    </div>
-                </form>
-            </div>
+      <div class="footer-container">
+        <!-- Column 1: Branding -->
+        <div class="footer-section">
+          <img src="/assets/images/UpdatedLogo.svg" alt="" width="250" />
+          <p>The ultimate IPTV solution for all your entertainment needs.</p>
+          <a href="https://t.me/TurtleIPTV_Bot">
+            <img
+              src="/assets/images/telegram.svg"
+              alt="Telegram"
+              class="social-icon"
+            />
+          </a>
         </div>
 
-        <!-- Bottom Section -->
-        <div class="footer-bottom">
-            <div class="payment-methods">
-                <img src="/assets/images/payment/visa.svg" alt="Visa" />
-                <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
-                <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
-                <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
-            </div>
-            <p>&copy; 2025 KyoStream IPTV. All rights reserved.</p>
+        <!-- Column 2: Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#pricing">Pricing</a></li>
+            <li><a href="./index.html#features">Features</a></li>
+            <li><a href="./index.html#faq">FAQ</a></li>
+            <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
+            <li><a href="installation.html">Installation Guides</a></li>
+          </ul>
         </div>
+
+        <!-- Column 3: Contact & Legal -->
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>support@nakedturtleiptv.com</p>
+          <p>24/7 Live Chat Support</p>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="setup.html">Set Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Get IPTV news & deals in your inbox:</p>
+          <form onsubmit="handleSubscribe(event)">
+            <div class="newsletter">
+              <input
+                type="email"
+                id="email"
+                placeholder="Your email"
+                required
+              />
+              <button type="submit">&#8594;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <img src="/assets/images/payment/visa.svg" alt="Visa" />
+          <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
+          <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
+          <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
+        </div>
+        <p>&copy; 2025 NakedTurtle IPTV. All rights reserved.</p>
+      </div>
     </footer>
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menu-icon');
-            if (!menu || !icon) return; // Safeguard
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const icon = document.getElementById("menu-icon");
+        if (!menu || !icon) return; // Safeguard
 
-            if (menu.style.maxHeight) {
-                menu.style.maxHeight = null;
-                icon.textContent = '☰';
-            } else {
-                menu.style.maxHeight = '400px';
-                icon.textContent = '✕';
-            }
+        if (menu.style.maxHeight) {
+          menu.style.maxHeight = null;
+          icon.textContent = "☰";
+        } else {
+          menu.style.maxHeight = "400px";
+          icon.textContent = "✕";
         }
-
+      }
     </script>
     <!-- JavaScript Files -->
     <script src="js/main.js"></script>
-    <script
-        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
-</body>
-
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  </body>
 </html>

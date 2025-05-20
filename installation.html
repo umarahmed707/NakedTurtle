@@ -1,727 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NakedTurtle IPTV Setup Guide</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/hero.css">
-<style>
-  /* Reset & base */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0; padding: 0;
-    background: linear-gradient(to right, #1e1b4b, #064e3b);
-    overflow-x: hidden;
-    color: #ddd;
-    line-height: 1.5;
-    font-family: Arial, sans-serif;
-  }
-  a {
-    color: #22d3ee;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NakedTurtle IPTV Setup Guide</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <style>
+      /* Reset & base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #1e1b4b, #064e3b);
+        overflow-x: hidden;
+        color: #ddd;
+        line-height: 1.5;
+        font-family: Arial, sans-serif;
+      }
+      a {
+        color: #22d3ee;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-  /* Container */
-  .cards2 {
-    text-align: center;
-  }
+      /* Container */
+      .cards2 {
+        text-align: center;
+      }
 
-  /* Badge */
-  .badge {
-    display: inline-block;
-    padding: 0.25em 1em;
-    border-radius: 9999px;
-    background-color: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    font-weight: 700;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
+      /* Badge */
+      .badge {
+        display: inline-block;
+        padding: 0.25em 1em;
+        border-radius: 9999px;
+        background-color: rgba(16, 185, 129, 0.2);
+        color: #10b981;
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
 
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    padding: 0.75em 1.5em;
-    border-radius: 0.5rem;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    user-select: none;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    list-style: none;
-    justify-content: center;
-  }
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        padding: 0.75em 1.5em;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        user-select: none;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        list-style: none;
+        justify-content: center;
+      }
 
-  .btn-primary {
-    background-color: #10b981;
-    color: #121212;
-  }
-  .btn-primary:hover {
-    background-color: #0e9e6e;
-    color: #121212;
-  }
+      .btn-primary {
+        background-color: #10b981;
+        color: #121212;
+      }
+      .btn-primary:hover {
+        background-color: #0e9e6e;
+        color: #121212;
+      }
 
-  .btn-outline {
-    background-color: transparent;
-    border: 2px solid #000000;
-    color: white;
-  }
-  .btn-outline:hover {
-    background-color: #2e2e2e;
-  }
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid #000000;
+        color: white;
+      }
+      .btn-outline:hover {
+        background-color: #2e2e2e;
+      }
 
-  /* Flex utilities */
-  .flex {
-    display: flex;
-  }
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-  }
-  .flex-col {
-    flex-direction: column;
-  }
-  .gap-4 {
-    gap: 1rem;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .mb-4 {
-    margin-bottom: 1rem;
-  }
-  .mb-12 {
-    margin-bottom: 3rem;
-  }
-  .mt-2 {
-    margin-top: 0.5rem;
-  }
-  .text-muted {
-    color: #999;
-  }
-  .text-highlight {
-    color: #10b981;
-  }
-  h1, h2, h3 {
-    margin: 0 0 0.5em 0;
-  }
+      /* Flex utilities */
+      .flex {
+        display: flex;
+      }
+      .flex-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+      .text-muted {
+        color: #999;
+      }
+      .text-highlight {
+        color: #10b981;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 0.5em 0;
+      }
 
-  /* Hero Section */
-  header.hero1 {
-    padding: 4rem 1rem 6rem;
-    border-bottom: 1px solid #27272a;
-    margin-top: 200px;
-  }
-  header.hero1 h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-  }
-  header.hero1 p {
-    max-width: 600px;
-    margin: 0.5rem auto 1.5rem;
-    font-size: 1.1rem;
-    color: #bbb;
-  }
+      /* Hero Section */
+      header.hero1 {
+        padding: 4rem 1rem 6rem;
+        border-bottom: 1px solid #27272a;
+        margin-top: 200px;
+      }
+      header.hero1 h1 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+      header.hero1 p {
+        max-width: 600px;
+        margin: 0.5rem auto 1.5rem;
+        font-size: 1.1rem;
+        color: #bbb;
+      }
 
-  /* Buttons container inside hero */
-  header.hero1 .btn-group {
-    max-width: 620px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
+      /* Buttons container inside hero */
+      header.hero1 .btn-group {
+        max-width: 620px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
 
-  /* Sections */
-  section {
-    padding: 4rem 1rem;
-    border-bottom: 1px solid #27272a;
-  }
+      /* Sections */
+      section {
+        padding: 4rem 1rem;
+        border-bottom: 1px solid #27272a;
+      }
 
-  /* Cards grid */
-  .cards-grid {
-    display: grid;
-    gap: 2rem;
-  }
-    .cards-grid1 {
-    display: grid;
+      /* Cards grid */
+      .cards-grid {
+        display: grid;
+        gap: 2rem;
+      }
+      .cards-grid1 {
+        display: grid;
+      }
+      .cards-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .cards-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
 
-  }
-  .cards-grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .cards-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
+      .card1 {
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid #27272a;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        color: #ddd;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        align-items: center;
+        transition: border-color 0.3s ease;
+        margin: 0 auto;
+      }
+      .card {
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid #27272a;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        color: #ddd;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        align-items: center;
+        transition: border-color 0.3s ease;
+        margin: 0 auto;
+      }
+      .card:hover {
+        border-color: #10b981;
+      }
+      .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .icon-circle {
+        background-color: rgba(34, 211, 238, 0.1);
+        border-radius: 9999px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #10b981;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      .card-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+      }
+      .card-description {
+        font-size: 1rem;
+        text-align: center;
+        color: #bbb;
+      }
+      .links {
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .links a {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #10b981;
+      }
+      .links a:hover {
+        text-decoration: underline;
+      }
 
-.card1{
-       background-color: rgba(24, 24, 27, 0.5);
-    border: 1px solid #27272a;
-    border-radius: 1rem;
-    padding: 2rem 1.5rem;
-    color: #ddd;
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    align-items: center;
-    transition: border-color 0.3s ease;
-    margin: 0 auto; 
-}
-  .card {
-    background-color: rgba(24, 24, 27, 0.5);
-    border: 1px solid #27272a;
-    border-radius: 1rem;
-    padding: 2rem 1.5rem;
-    color: #ddd;
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    align-items: center;
-    transition: border-color 0.3s ease;
-    margin: 0 auto;
-  }
-  .card:hover {
-    border-color: #10b981;
-  }
-  .card-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  .icon-circle {
-    background-color: rgba(34, 211, 238, 0.1);
-    border-radius: 9999px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #10b981;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  .card-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-align: center;
-    color: white;
-  }
-  .card-description {
-    font-size: 1rem;
-    text-align: center;
-    color: #bbb;
-  }
-  .links {
-    margin-top: 0.5rem;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .links a {
-    font-weight: 700;
-    font-size: 1rem;
-    color: #10b981;
-  }
-  .links a:hover {
-    text-decoration: underline;
-  }
+      /* FAQ Section */
+      .faq-item {
+        margin-bottom: 1.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .faq-question {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+        color: white;
+      }
+      .faq-answer {
+        color: #aaa;
+        font-size: 1rem;
+      }
 
-  /* FAQ Section */
-  .faq-item {
-    margin-bottom: 1.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .faq-question {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-    color: white;
-  }
-  .faq-answer {
-    color: #aaa;
-    font-size: 1rem;
-  }
+      /* Support Section */
+      .support-container {
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid #27272a;
+        border-radius: 1rem;
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .support-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: white;
+      }
+      .support-desc {
+        margin-bottom: 1.5rem;
+        color: #bbb;
+      }
+      .support-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .support-buttons .btn {
+        flex: 1 1 140px;
+        justify-content: center;
+      }
 
-  /* Support Section */
-  .support-container {
-    background-color: rgba(24, 24, 27, 0.5);
-    border: 1px solid #27272a;
-    border-radius: 1rem;
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .support-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
-  }
-  .support-desc {
-    margin-bottom: 1.5rem;
-    color: #bbb;
-  }
-  .support-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .support-buttons .btn {
-    flex: 1 1 140px;
-    justify-content: center;
-  }
+      /* Icon placeholders */
+      .icon-tv::before {
+        content: "📺";
+      }
+      .icon-phone::before {
+        content: "📱";
+      }
+      .icon-laptop::before {
+        content: "💻";
+      }
+      .icon-wifi::before {
+        content: "📶";
+      }
+      .icon-download::before {
+        content: "⬇️";
+      }
+      .icon-help::before {
+        content: "❓";
+      }
+      .icon-chat::before {
+        content: "💬";
+      }
+      .icon-shield::before {
+        content: "🛡️";
+      }
+      .icon-chevron::before {
+        content: "➡️";
+      }
 
-  /* Icon placeholders */
-  .icon-tv::before { content: "📺"; }
-  .icon-phone::before { content: "📱"; }
-  .icon-laptop::before { content: "💻"; }
-  .icon-wifi::before { content: "📶"; }
-  .icon-download::before { content: "⬇️"; }
-  .icon-help::before { content: "❓"; }
-  .icon-chat::before { content: "💬"; }
-  .icon-shield::before { content: "🛡️"; }
-  .icon-chevron::before { content: "➡️"; }
+      /* Icon inside circle */
+      .icon-circle span {
+        font-size: 1.75rem;
+      }
+      /* .faq2 {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .faq-item {
+        border-bottom: 1px solid #ccc;
+        width: 900px;
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+      label {
+        display: block;
+        padding: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        background: #8d8d8d;
+        transition: background-color 0.3s ease;
+      }
+      label:hover {
+        background-color: #535353;
+      }
+      label::after {
+        content: "+";
+        position: absolute;
+        right: 20px;
+        font-size: 24px;
+        transition: transform 0.3s ease;
+      }
+      input[type="checkbox"]:checked + label::after {
+        content: "-";
+        transform: rotate(180deg);
+      }
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 15px;
+        background: #3d3d3d;
+        transition: max-height 0.35s ease;
+      }
+      input[type="checkbox"]:checked ~ .answer {
+        max-height: 400px;
+        padding: 15px;
+      } */
 
-  /* Icon inside circle */
-  .icon-circle span {
-    font-size: 1.75rem;
-  }
-    .faq2 {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .faq-item {
-    border-bottom: 1px solid #ccc;
-    width: 900px;
-  }
-  input[type="checkbox"] {
-    display: none;
-  }
-  label {
-    display: block;
-    padding: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-    background: #8d8d8d;
-    transition: background-color 0.3s ease;
-  }
-  label:hover {
-    background-color: #535353;
-  }
-  label::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    font-size: 24px;
-    transition: transform 0.3s ease;
-  }
-  input[type="checkbox"]:checked + label::after {
-    content: '-';
-    transform: rotate(180deg);
-  }
-  .answer {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 15px;
-    background: #3d3d3d;
-    transition: max-height 0.35s ease;
-  }
-  input[type="checkbox"]:checked ~ .answer {
-    max-height: 400px;
-    padding: 15px;
-  }
+      .faq2 {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+        color: white;
+      }
 
-  /* Section card margin adjustment */
-  .section-card {
-    margin-top: -150px;
-  }
-  .section-card h2 {
-    font-size: 35px;
-    color: white;
-  }
+      .faq-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        width: 900px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
 
-  /* --- Responsive styles --- */
-  @media (max-width: 1024px) {
-    .cards-grid-3 {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    .cards-grid-4 {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-  }
+      input[type="checkbox"] {
+        display: none;
+      }
 
-  @media (max-width: 768px) {
- 
-    header.hero1 h1 {
-      font-size: 2rem;
-    }
-    .cards-grid-3,
-    .cards-grid-4 {
-      grid-template-columns: 1fr;
-    }
-    .card {
-      width: 100%;
-      max-width: 400px;
-      
-    }
-    .section-card {
-     
-      padding: 0 1rem;
-    }
-  }
+      label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        background: transparent;
+        transition: background-color 0.3s ease;
+        border-radius: 8px;
+      }
 
-  @media (max-width: 480px) {
-    .container1 {
-      margin-top: 80px;
-      
-    }
-    header.hero h1 {
-      font-size: 1.6rem;
-      line-height: 1.2;
-    }
-    header.hero p {
-      font-size: 1rem;
-      max-width: 90vw;
-      margin-bottom: 1.5rem;
-    }
-    .btn {
-      font-size: 10px;
-      padding: 0.6em 1.2em;
-      width: 100%;
-      
-    }
-    .flex.flex-center.gap-4 > .btn + .btn {
-      margin-top: 0.75rem;
-    }
-    .card {
-      padding: 1.5rem 1rem;
-    }
-    .section-card {
-       margin-top: -100px;
-    }
-    .support-buttons {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .support-buttons .btn {
-      flex: 1 1 auto;
-      width: 100%;
-    }
-  }
-    
-</style>
-</head>
-<body>
- <div class="w-full h-18">
+      label:hover {
+        background-color: rgba(9, 83, 83, 0.6);
+      }
 
-        <header class="navbar fixed top-0 left-0 right-0 z-50">
-            <div class="container">
-                <div class="nav-content">
-                    <!-- Logo -->
-                    <a href="/">
-                        <img src="./assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" width="200" height="40" />
-                    </a>
+      .arrow {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease;
+      }
 
-                    <!-- Desktop Navigation -->
-                    <nav class="nav-links">
-                        <a href="./index.html#features">Features</a>
-                        <a href="./index.html#pricing">Pricing</a>
-                        <a href="./index.html#faq">FAQ</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="installation.html">Installation Guides</a>
-                    </nav>
+      input[type="checkbox"]:checked + label .arrow {
+        transform: rotate(180deg);
+      }
 
-                    <!-- Buttons -->
-                    <div class="nav-actions">
-                        <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn">Free Trial</a>
-                        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-                            <span id="menu-icon">☰</span>
-                        </button>
-                    </div>
-                </div>
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        background: rgba(61, 61, 61, 0.3);
+        transition: max-height 0.35s ease, padding 0.35s ease;
+        color: white;
+      }
+
+      input[type="checkbox"]:checked ~ .answer {
+        max-height: 500px; /* enough to show content */
+        padding: 15px 20px;
+      }
+
+      /* Section card margin adjustment */
+      .section-card {
+        margin-top: -150px;
+      }
+      .section-card h2 {
+        font-size: 35px;
+        color: white;
+      }
+
+      /* --- Responsive styles --- */
+      @media (max-width: 1024px) {
+        .cards-grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .cards-grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header.hero1 h1 {
+          font-size: 2rem;
+        }
+        .cards-grid-3,
+        .cards-grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          width: 100%;
+          max-width: 400px;
+        }
+        .section-card {
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container1 {
+          margin-top: 80px;
+        }
+        header.hero h1 {
+          font-size: 1.6rem;
+          line-height: 1.2;
+        }
+        header.hero p {
+          font-size: 1rem;
+          max-width: 90vw;
+          margin-bottom: 1.5rem;
+        }
+        .btn {
+          font-size: 10px;
+          padding: 0.6em 1.2em;
+          width: 100%;
+        }
+        .flex.flex-center.gap-4 > .btn + .btn {
+          margin-top: 0.75rem;
+        }
+        .card {
+          padding: 1.5rem 1rem;
+        }
+        .section-card {
+          margin-top: -100px;
+        }
+        .support-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .support-buttons .btn {
+          flex: 1 1 auto;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full h-18">
+      <header class="navbar fixed top-0 left-0 right-0 z-50">
+        <div class="container">
+          <div class="nav-content">
+            <!-- Logo -->
+            <a href="/">
+              <img
+                src="./assets/images/UpdatedLogo.svg"
+                alt="NakedTurtle Logo"
+                width="200"
+                height="40"
+              />
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+              <a href="./index.html#features">Features</a>
+              <a href="./index.html#pricing">Pricing</a>
+              <a href="./index.html#faq">FAQ</a>
+              <a href="contact.html">Contact</a>
+              <a href="installation.html">Installation Guides</a>
+            </nav>
+
+            <!-- Buttons -->
+            <div class="nav-actions">
+              <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn"
+                >Free Trial</a
+              >
+              <button
+                class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Toggle menu"
+              >
+                <span id="menu-icon">☰</span>
+              </button>
             </div>
+          </div>
+        </div>
 
-            <!-- Mobile Navigation -->
-            <div class="mobile-menu" id="mobileMenu">
-                <nav>
-                    <a href="./index.html#features" onclick="toggleMenu()">Features</a>
-                    <a href="./index.html#pricing" onclick="toggleMenu()">Pricing</a>
-                    <a href="./index.html#faq" onclick="toggleMenu()">FAQ</a>
-                    <a href="contact.html" onclick="toggleMenu()">Contact</a>
-                    <a href="installation.html" onclick="toggleMenu()">Installation Guides</a>
-                </nav>
-            </div>
-        </header>
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu" id="mobileMenu">
+          <nav>
+            <a href="./index.html#features" onclick="toggleMenu()">Features</a>
+            <a href="./index.html#pricing" onclick="toggleMenu()">Pricing</a>
+            <a href="./index.html#faq" onclick="toggleMenu()">FAQ</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+            <a href="installation.html" onclick="toggleMenu()"
+              >Installation Guides</a
+            >
+          </nav>
+        </div>
+      </header>
     </div>
     <div class="img-section">
-<header class="hero1 text-center">
-  <div class="badge">IPTV SETUP GUIDE</div>
-  <h1>
-    Setup Your <br />
-    <span class="text-highlight">NakedTurtle IPTV Service</span>
-  </h1>
-  <p>
-    Get started in just a few minutes. Our simple setup guides will help you access premium TV channels on all your devices.
-  </p>
-  <div class="btn-group flex flex-center gap-4" style="max-width: 620px; margin: 0 auto;">
-    <a href="#quick-start" class="btn btn-primary">
-      Go to Quick Start Guide <span class="icon-chevron"></span>
-    </a>
-    <a href="#troubleshooting" class="btn btn-outline">
-      View Troubleshooting Help <span class="icon-help"></span>
-    </a>
-  </div>
-</header>
-</div>
-<section id="quick-start" class="section-card text-center ">
-  <h2 class="mb-4">Quick Start Guide</h2>
-  <p class="mb-12 text-muted">
-    Follow these simple steps to get started with NakedTurtle using the IPTV Smarters app.
-  </p>
-  <div class="cards-grid1 cards-grid-3">
-    <article class="card">
-      <header class="card-header">
-        <div class="icon-circle icon-download"><span>⬇️</span></div>
-        <h3 class="card-title">Step 1: Download</h3>
+      <header class="hero1 text-center">
+        <div class="badge">IPTV SETUP GUIDE</div>
+        <h1>
+          Setup Your <br />
+          <span class="text-highlight">NakedTurtle IPTV Service</span>
+        </h1>
+        <p>
+          Get started in just a few minutes. Our simple setup guides will help
+          you access premium TV channels on all your devices.
+        </p>
+        <div
+          class="btn-group flex flex-center gap-4"
+          style="max-width: 620px; margin: 0 auto"
+        >
+          <a href="#quick-start" class="btn btn-primary">
+            Go to Quick Start Guide >
+          </a>
+          <a href="#troubleshooting" class="btn btn-outline">
+            View Troubleshooting Help <span class="icon-help"></span>
+          </a>
+        </div>
       </header>
-      <p class="card-description">
-        Download our IPTV app from your device's app store or choose your preferred version below:
-      </p>
-      <div class="links">
-        <a href="https://www.iptvsmarters.com/#downloads" target="_blank" rel="noopener noreferrer">IPTV Smarters</a>
-        <a href="https://smarterspro.com/" target="_blank" rel="noopener noreferrer">Smarters Pro</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <header class="card-header">
-        <div class="icon-circle"><span>2</span></div>
-        <h3 class="card-title">Step 2: Login</h3>
-      </header>
-      <p class="card-description">
-        Open the app, select 'Add User', choose 'URL' login type, and enter your NakedTurtle credentials.
-      </p>
-    </article>
-
-    <article class="card">
-      <header class="card-header">
-        <div class="icon-circle icon-tv"><span>📺</span></div>
-        <h3 class="card-title">Step 3: Enjoy</h3>
-      </header>
-      <p class="card-description">
-        Start streaming your favorite channels and content on any device.
-      </p>
-    </article>
-  </div>
-</section>
-
-<section class="container1 text-center">
-  <h2 class="mb-4 ">Supported Devices</h2>
-  <p class="mb-12 text-muted">
-    NakedTurtle works on all your favorite devices. Set up once, watch everywhere with maximum flexibility.
-  </p>
-  <div class="cards-grid cards-grid-4">
-    <article class="card1">
-      <header class="card-header">
-        <div class="icon-circle icon-tv"><span>📺</span></div>
-        <h3 class="card-title">Smart TVs</h3>
-      </header>
-      <p class="card-description">
-        Samsung, LG, Android TV, Apple TV. Enjoy seamless streaming directly on your Smart TV.
-      </p>
-    </article>
-
-    <article class="card1">
-      <header class="card-header">
-        <div class="icon-circle icon-phone"><span>📱</span></div>
-        <h3 class="card-title">Mobile Devices</h3>
-      </header>
-      <p class="card-description">
-        iOS and Android phones and tablets. Stream on the go with our mobile app.
-      </p>
-    </article>
-
-    <article class="card1">
-      <header class="card-header">
-        <div class="icon-circle icon-laptop"><span>💻</span></div>
-        <h3 class="card-title">Computers</h3>
-      </header>
-      <p class="card-description">
-        Windows, Mac, Linux via web browsers. Watch directly in your browser for easy access.
-      </p>
-    </article>
-
-    <article class="card1">
-      <header class="card-header">
-        <div class="icon-circle icon-wifi"><span>📶</span></div>
-        <h3 class="card-title">IPTV Boxes</h3>
-      </header>
-      <p class="card-description">
-        MAG, Formuler, Dreamlink, Buzztv. Optimized for dedicated IPTV boxes and streaming devices.
-      </p>
-    </article>
-  </div>
-</section>
-<div class="faq2 ">
-<div class="faq-item">
-  <input type="checkbox" id="q1" />
-  <label for="q1">What is your return policy?</label>
-  <div class="answer">
-    <p>We offer a 30-day return policy from the date of purchase with full refund.</p>
-  </div>
-</div>
-
-<div class="faq-item">
-  <input type="checkbox" id="q2" />
-  <label for="q2">How long does shipping take?</label>
-  <div class="answer">
-    <p>Shipping typically takes 5-7 business days depending on your location.</p>
-  </div>
-</div>
-
-<div class="faq-item">
-  <input type="checkbox" id="q3" />
-  <label for="q3">Do you offer international shipping?</label>
-  <div class="answer">
-    <p>Yes, we ship worldwide. International shipping fees and times vary by country.</p>
-  </div>
-</div>
-</div>
-<section >
-  <div class="support-container">
-    <h3 class="support-title">Still have questions?</h3>
-    <p class="support-desc">Our support team is here to help 24/7.</p>
-    <div class="support-buttons">
-      <button class="btn btn-primary"><span class="icon-chat"></span> Live Chat</button>
-      <a href="/contact" class="btn btn-outline"><span class="icon-shield"></span> Contact Support</a>
     </div>
-  </div>
-</section>
-  <footer class="footer">
-        <div class="footer-container">
-            <!-- Column 1: Branding -->
-            <div class="footer-section">
-                <img src="/assets/images/UpdatedLogo.svg" alt="" width="250">
-                <p>The ultimate IPTV solution for all your entertainment needs.</p>
-                <a href="https://t.me/TurtleIPTV_Bot">
-                    <img src="/assets/images/telegram.svg" alt="Telegram" class="social-icon" />
-                </a>
+    <section id="quick-start" class="section-card text-center">
+      <h2 class="mb-4">Quick Start Guide</h2>
+      <p class="mb-12 text-muted">
+        Follow these simple steps to get started with NakedTurtle using the IPTV
+        Smarters app.
+      </p>
+      <div class="cards-grid1 cards-grid-3">
+        <article class="card">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-download h-8 w-8"
+                aria-hidden="true"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
             </div>
+            <h3 class="card-title">Step 1: Download</h3>
+          </header>
+          <p class="card-description">
+            Download our IPTV app from your device's app store or choose your
+            preferred version below:
+          </p>
+          <div class="links">
+            <a
+              href="https://www.iptvsmarters.com/#downloads"
+              target="_blank"
+              rel="noopener noreferrer"
+              >IPTV Smarters</a
+            >
+            <a
+              href="https://smarterspro.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Smarters Pro</a
+            >
+          </div>
+        </article>
 
-            <!-- Column 2: Quick Links -->
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#pricing">Pricing</a></li>
-                    <li><a href="./index.html#features">Features</a></li>
-                    <li><a href="./index.html#faq">FAQ</a></li>
-                    <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
-                    <li><a href="installation.html">Installation Guides</a></li>
-                </ul>
-            </div>
+        <article class="card">
+          <header class="card-header">
+            <div class="icon-circle"><span>2</span></div>
+            <h3 class="card-title">Step 2: Login</h3>
+          </header>
+          <p class="card-description">
+            Open the app, select 'Add User', choose 'URL' login type, and enter
+            your NakedTurtle credentials.
+          </p>
+        </article>
 
-            <!-- Column 3: Contact & Legal -->
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>support@nakedturtleiptv.com</p>
-                <p>24/7 Live Chat Support</p>
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="setup.html">Set Up</a></li>
-                </ul>
+        <article class="card">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-tv h-8 w-8 text-accent-primary"
+                aria-hidden="true"
+              >
+                <rect width="20" height="15" x="2" y="7" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
             </div>
+            <h3 class="card-title">Step 3: Enjoy</h3>
+          </header>
+          <p class="card-description">
+            Start streaming your favorite channels and content on any device.
+          </p>
+        </article>
+      </div>
+    </section>
 
-            <!-- Column 4: Newsletter -->
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Get IPTV news & deals in your inbox:</p>
-                <form onsubmit="handleSubscribe(event)">
-                    <div class="newsletter">
-                        <input type="email" id="email" placeholder="Your email" required />
-                        <button type="submit">&#8594;</button>
-                    </div>
-                </form>
+    <section class="container1 text-center">
+      <h2 class="mb-4">Supported Devices</h2>
+      <p class="mb-12 text-muted">
+        NakedTurtle works on all your favorite devices. Set up once, watch
+        everywhere with maximum flexibility.
+      </p>
+      <div class="cards-grid cards-grid-4">
+        <article class="card1">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-tv h-8 w-8 text-accent-primary"
+                aria-hidden="true"
+              >
+                <rect width="20" height="15" x="2" y="7" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
             </div>
+            <h3 class="card-title">Smart TVs</h3>
+          </header>
+          <p class="card-description">
+            Samsung, LG, Android TV, Apple TV. Enjoy seamless streaming directly
+            on your Smart TV.
+          </p>
+        </article>
+
+        <article class="card1">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-smartphone h-8 w-8 text-accent-primary"
+                aria-hidden="true"
+              >
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                <path d="M12 18h.01"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Mobile Devices</h3>
+          </header>
+          <p class="card-description">
+            iOS and Android phones and tablets. Stream on the go with our mobile
+            app.
+          </p>
+        </article>
+
+        <article class="card1">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-laptop h-8 w-8 text-accent-primary"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Computers</h3>
+          </header>
+          <p class="card-description">
+            Windows, Mac, Linux via web browsers. Watch directly in your browser
+            for easy access.
+          </p>
+        </article>
+
+        <article class="card1">
+          <header class="card-header">
+            <div
+              style="
+                padding: 0.75rem;
+                border-radius: 9999px;
+                background-color: rgba(52, 144, 220, 0.1);
+                margin-bottom: 1rem;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-wifi h-8 w-8 text-accent-primary"
+                aria-hidden="true"
+              >
+                <path d="M12 20h.01"></path>
+                <path d="M2 8.82a15 15 0 0 1 20 0"></path>
+                <path d="M5 12.859a10 10 0 0 1 14 0"></path>
+                <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">IPTV Boxes</h3>
+          </header>
+          <p class="card-description">
+            MAG, Formuler, Dreamlink, Buzztv. Optimized for dedicated IPTV boxes
+            and streaming devices.
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- <div class="faq2">
+      <div class="faq-item">
+        <input type="checkbox" id="q1" />
+        <label for="q1">What is your return policy?</label>
+        <div class="answer">
+          <p>
+            We offer a 30-day return policy from the date of purchase with full
+            refund.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="q2" />
+        <label for="q2">How long does shipping take?</label>
+        <div class="answer">
+          <p>
+            Shipping typically takes 5-7 business days depending on your
+            location.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="q3" />
+        <label for="q3">Do you offer international shipping?</label>
+        <div class="answer">
+          <p>
+            Yes, we ship worldwide. International shipping fees and times vary
+            by country.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <div class="faq2">
+      <div class="faq-item">
+        <input type="checkbox" id="q1" />
+        <label for="q1">
+          What is your return policy?
+          <span class="arrow" aria-hidden="true"></span>
+        </label>
+        <div class="answer">
+          <p>
+            We offer a 30-day return policy from the date of purchase with full
+            refund.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="q2" />
+        <label for="q2">
+          How long does shipping take?
+          <span class="arrow" aria-hidden="true"></span>
+        </label>
+        <div class="answer">
+          <p>
+            Shipping typically takes 5-7 business days depending on your
+            location.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="q3" />
+        <label for="q3">
+          Do you offer international shipping?
+          <span class="arrow" aria-hidden="true"></span>
+        </label>
+        <div class="answer">
+          <p>
+            Yes, we ship worldwide. International shipping fees and times vary
+            by country.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="support-container">
+        <h3 class="support-title">Still have questions?</h3>
+        <p class="support-desc">Our support team is here to help 24/7.</p>
+        <div class="support-buttons">
+          <button class="btn btn-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-square h-4 w-4"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            Live Chat
+          </button>
+          <a href="/contact" class="btn btn-outline"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shield-check h-4 w-4 text-emerald-500"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              ></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            Contact Support</a
+          >
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Column 1: Branding -->
+        <div class="footer-section">
+          <img src="/assets/images/UpdatedLogo.svg" alt="" width="250" />
+          <p>The ultimate IPTV solution for all your entertainment needs.</p>
+          <a href="https://t.me/TurtleIPTV_Bot">
+            <img
+              src="/assets/images/telegram.svg"
+              alt="Telegram"
+              class="social-icon"
+            />
+          </a>
         </div>
 
-        <!-- Bottom Section -->
-        <div class="footer-bottom">
-            <div class="payment-methods">
-                <img src="/assets/images/payment/visa.svg" alt="Visa" />
-                <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
-                <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
-                <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
-            </div>
-            <p>&copy; 2025 KyoStream IPTV. All rights reserved.</p>
+        <!-- Column 2: Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#pricing">Pricing</a></li>
+            <li><a href="./index.html#features">Features</a></li>
+            <li><a href="./index.html#faq">FAQ</a></li>
+            <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
+            <li><a href="installation.html">Installation Guides</a></li>
+          </ul>
         </div>
+
+        <!-- Column 3: Contact & Legal -->
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>support@nakedturtleiptv.com</p>
+          <p>24/7 Live Chat Support</p>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="setup.html">Set Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Get IPTV news & deals in your inbox:</p>
+          <form onsubmit="handleSubscribe(event)">
+            <div class="newsletter">
+              <input
+                type="email"
+                id="email"
+                placeholder="Your email"
+                required
+              />
+              <button type="submit">&#8594;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <img src="/assets/images/payment/visa.svg" alt="Visa" />
+          <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
+          <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
+          <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
+        </div>
+        <p>&copy; 2025 NakedTurtle IPTV. All rights reserved.</p>
+      </div>
     </footer>
-  <script>
-        // Device tabs functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabTriggers = document.querySelectorAll('.device-tab-trigger');
-            const deviceTabs = document.querySelectorAll('.device-tab');
-            
-            tabTriggers.forEach(trigger => {
-                trigger.addEventListener('click', function() {
-                    // Remove active class from all triggers and tabs
-                    tabTriggers.forEach(t => t.classList.remove('active'));
-                    deviceTabs.forEach(tab => tab.classList.remove('active'));
-                    
-                    // Add active class to clicked trigger
-                    this.classList.add('active');
-                    
-                    // Show corresponding tab
-                    const device = this.getAttribute('data-device');
-                    const targetTab = document.querySelector(`.device-tab[data-device="${device}"]`);
-                    if (targetTab) {
-                        targetTab.classList.add('active');
-                    }
-                });
-            });
-            
-            // FAQ accordion functionality
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                
-                question.addEventListener('click', function() {
-                    item.classList.toggle('active');
-                });
-            });
+    <script>
+      // Device tabs functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabTriggers = document.querySelectorAll(".device-tab-trigger");
+        const deviceTabs = document.querySelectorAll(".device-tab");
+
+        tabTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function () {
+            // Remove active class from all triggers and tabs
+            tabTriggers.forEach((t) => t.classList.remove("active"));
+            deviceTabs.forEach((tab) => tab.classList.remove("active"));
+
+            // Add active class to clicked trigger
+            this.classList.add("active");
+
+            // Show corresponding tab
+            const device = this.getAttribute("data-device");
+            const targetTab = document.querySelector(
+              `.device-tab[data-device="${device}"]`
+            );
+            if (targetTab) {
+              targetTab.classList.add("active");
+            }
+          });
         });
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+
+          question.addEventListener("click", function () {
+            item.classList.toggle("active");
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

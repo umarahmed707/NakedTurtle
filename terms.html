@@ -1,437 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms of Service - NakedTurtle IPTV</title>
-    <meta name="description" content="Terms of Service for NakedTurtle IPTV. Please read these terms carefully before using our service.">
-    
+    <meta
+      name="description"
+      content="Terms of Service for NakedTurtle IPTV. Please read these terms carefully before using our service."
+    />
+
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
     <!-- Billgang Product Embed Script -->
     <script src="https://embed.billgang.store/embed.js"></script>
-    
+
     <style>
-        /* Terms Page Specific Styles */
-        .terms-hero {
-            padding: var(--spacing-3xl) 0;
-            position: relative;
-            text-align: center;
-            margin-top: 150px;
-        }
-        
-        .terms-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 60%),
-                        radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 60%);
-            z-index: -1;
-        }
-        
+      /* Terms Page Specific Styles */
+      .terms-hero {
+        padding: var(--spacing-3xl) 0;
+        position: relative;
+        text-align: center;
+        margin-top: 150px;
+      }
+
+      .terms-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at top right,
+            rgba(16, 185, 129, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(139, 92, 246, 0.1),
+            transparent 60%
+          );
+        z-index: -1;
+      }
+
+      .terms-hero h1 {
+        font-size: var(--font-size-4xl);
+        font-weight: 800;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .terms-hero p {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-muted);
+        max-width: 700px;
+        margin: 0 auto var(--spacing-xl);
+      }
+
+      .terms-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-2xl) 0;
+        margin-top: -250px;
+      }
+
+      .terms-section {
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .terms-section h2 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-primary);
+      }
+
+      .terms-section h3 {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        margin: var(--spacing-lg) 0 var(--spacing-sm);
+      }
+
+      .terms-section p {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-muted);
+        line-height: 1.7;
+      }
+
+      .terms-section ul,
+      .terms-section ol {
+        margin-bottom: var(--spacing-md);
+        padding-left: var(--spacing-lg);
+        color: var(--color-text-muted);
+      }
+
+      .terms-section li {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.7;
+      }
+
+      .terms-section strong {
+        color: var(--color-text);
+        font-weight: 600;
+      }
+
+      .terms-section a {
+        color: var(--color-primary);
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      .terms-section a:hover {
+        color: var(--color-primary-light);
+      }
+
+      .terms-updated {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        text-align: center;
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .terms-contact {
+        background-color: rgba(24, 24, 27, 0.3);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
+        text-align: center;
+      }
+
+      .terms-contact h3 {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .terms-contact p {
+        color: var(--color-text-muted);
+        margin-bottom: var(--spacing-md);
+      }
+
+      @media (max-width: 768px) {
         .terms-hero h1 {
-            font-size: var(--font-size-4xl);
-            font-weight: 800;
-            margin-bottom: var(--spacing-md);
+          font-size: var(--font-size-3xl);
         }
-        
-        .terms-hero p {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-muted);
-            max-width: 700px;
-            margin: 0 auto var(--spacing-xl);
-        }
-        
-        .terms-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-2xl) 0;
-            margin-top: -250px;
-        }
-        
-        .terms-section {
-            margin-bottom: var(--spacing-2xl);
-        }
-        
+
         .terms-section h2 {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-primary);
+          font-size: var(--font-size-xl);
         }
-        
+
         .terms-section h3 {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            margin: var(--spacing-lg) 0 var(--spacing-sm);
+          font-size: var(--font-size-lg);
         }
-        
-        .terms-section p {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
-        
-        .terms-section ul, 
-        .terms-section ol {
-            margin-bottom: var(--spacing-md);
-            padding-left: var(--spacing-lg);
-            color: var(--color-text-muted);
-        }
-        
-        .terms-section li {
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.7;
-        }
-        
-        .terms-section strong {
-            color: var(--color-text);
-            font-weight: 600;
-        }
-        
-        .terms-section a {
-            color: var(--color-primary);
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-        
-        .terms-section a:hover {
-            color: var(--color-primary-light);
-        }
-        
-        .terms-updated {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-            text-align: center;
-            margin-bottom: var(--spacing-2xl);
-        }
-        
-        .terms-contact {
-            background-color: rgba(24, 24, 27, 0.3);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
-            text-align: center;
-        }
-        
-        .terms-contact h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .terms-contact p {
-            color: var(--color-text-muted);
-            margin-bottom: var(--spacing-md);
-        }
-        
-        @media (max-width: 768px) {
-            .terms-hero h1 {
-                font-size: var(--font-size-3xl);
-            }
-            
-            .terms-section h2 {
-                font-size: var(--font-size-xl);
-            }
-            
-            .terms-section h3 {
-                font-size: var(--font-size-lg);
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header/Navigation -->
-     <div class="w-full h-18">
+    <div class="w-full h-18">
+      <header class="navbar fixed top-0 left-0 right-0 z-50">
+        <div class="container">
+          <div class="nav-content">
+            <!-- Logo -->
+            <a href="/">
+              <img
+                src="./assets/images/UpdatedLogo.svg"
+                alt="NakedTurtle Logo"
+                width="200"
+                height="40"
+              />
+            </a>
 
-        <header class="navbar fixed top-0 left-0 right-0 z-50">
-            <div class="container">
-                <div class="nav-content">
-                    <!-- Logo -->
-                    <a href="/">
-                        <img src="./assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" width="200" height="40" />
-                    </a>
-
-                    <!-- Desktop Navigation -->
-                   <nav class="nav-links">
-                        <a href="./index.html#features">Features</a>
-                        <a href="./index.html#pricing">Pricing</a>
-                        <a href="./index.html#faq">FAQ</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="installation.html">Installation Guides</a>
-                    </nav>
-                    <!-- Buttons -->
-                    <div class="nav-actions">
-                        <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn">Free Trial</a>
-                        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-                            <span id="menu-icon">☰</span>
-                        </button>
-                    </div>
-                </div>
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+              <a href="./index.html#features">Features</a>
+              <a href="./index.html#pricing">Pricing</a>
+              <a href="./index.html#faq">FAQ</a>
+              <a href="contact.html">Contact</a>
+              <a href="installation.html">Installation Guides</a>
+            </nav>
+            <!-- Buttons -->
+            <div class="nav-actions">
+              <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn"
+                >Free Trial</a
+              >
+              <button
+                class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Toggle menu"
+              >
+                <span id="menu-icon">☰</span>
+              </button>
             </div>
+          </div>
+        </div>
 
-            <!-- Mobile Navigation -->
-            <div class="mobile-menu" id="mobileMenu">
-                <nav>
-                    <a href="./index.html#features" onclick="toggleMenu()">Features</a>
-                    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
-                    <a href="#faq" onclick="toggleMenu()">FAQ</a>
-                    <a href="/contact" onclick="toggleMenu()">Contact</a>
-                    <a href="/contact" onclick="toggleMenu()">Installation Guides</a>
-                </nav>
-            </div>
-        </header>
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu" id="mobileMenu">
+          <nav>
+            <a href="./index.html#features" onclick="toggleMenu()">Features</a>
+            <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+            <a href="#faq" onclick="toggleMenu()">FAQ</a>
+            <a href="/contact" onclick="toggleMenu()">Contact</a>
+            <a href="/contact" onclick="toggleMenu()">Installation Guides</a>
+          </nav>
+        </div>
+      </header>
     </div>
 
     <main>
-       <div class="img-section"> <!-- Terms Hero Section -->
+      <div class="img-section">
+        <!-- Terms Hero Section -->
         <section class="terms-hero">
-            <div class="container">
-                <div class="badge">LEGAL</div>
-                <h1>Terms of Service</h1>
-                <p>Please read these terms and conditions carefully before using NakedTurtle IPTV services.</p>
-            </div>
+          <div class="container">
+            <div class="badge">LEGAL</div>
+            <h1>Terms of Service</h1>
+            <p>
+              Please read these terms and conditions carefully before using
+              NakedTurtle IPTV services.
+            </p>
+          </div>
         </section>
+      </div>
+      <!-- Terms Content -->
+      <section class="terms-content">
+        <div class="container">
+          <p class="terms-updated">Last Updated: May 1, 2025</p>
+
+          <div class="terms-section">
+            <h2>1. Introduction</h2>
+            <p>
+              Welcome to NakedTurtle IPTV ("Company", "we", "our", "us"). These
+              Terms of Service ("Terms", "Terms of Service") govern your use of
+              our website and services operated by NakedTurtle IPTV.
+            </p>
+
+            <p>
+              By accessing or using our Service, you agree to be bound by these
+              Terms. If you disagree with any part of the terms, you do not have
+              permission to access the Service.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>2. Communications</h2>
+            <p>
+              By creating an account on our service, you agree to subscribe to
+              newsletters, marketing or promotional materials and other
+              information we may send. However, you may opt out of receiving
+              any, or all, of these communications from us by following the
+              unsubscribe link or instructions provided in any email we send.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>3. Subscriptions</h2>
+            <p>
+              Some parts of the Service are billed on a subscription basis. You
+              will be billed in advance on a recurring and periodic basis (such
+              as monthly or annually), depending on the type of subscription
+              plan you select when purchasing the subscription.
+            </p>
+
+            <p>
+              At the end of each period, your subscription will automatically
+              renew under the exact same conditions unless you cancel it or
+              NakedTurtle IPTV cancels it.
+            </p>
+
+            <h3>3.1 Free Trial</h3>
+            <p>
+              We may, at our sole discretion, offer a subscription with a free
+              trial for a limited period of time. You may be required to enter
+              your billing information to sign up for the free trial.
+            </p>
+
+            <p>
+              If you do not cancel the subscription before the free trial period
+              is over, we will automatically charge the subscription fee for the
+              type of subscription you have selected.
+            </p>
+
+            <h3>3.2 Subscription Cancellations</h3>
+            <p>
+              You may cancel your subscription renewal either through your
+              online account management page or by contacting our customer
+              support team. You will not receive a refund for the fees you
+              already paid for your current subscription period, and you will
+              continue to have access to the service through the end of your
+              current subscription period.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>4. Refunds</h2>
+            <p>
+              Except when required by law, paid subscription fees are
+              non-refundable.
+            </p>
+
+            <p>
+              Certain refund requests may be considered by NakedTurtle IPTV on a
+              case-by-case basis and granted at the sole discretion of
+              NakedTurtle IPTV.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>5. Content</h2>
+            <p>
+              Our Service allows you to access content provided through various
+              third-party sources. The content you access through our Service
+              remains the property of the applicable content providers and may
+              be protected by copyright, trademark, and other intellectual
+              property laws.
+            </p>
+
+            <p>
+              NakedTurtle IPTV is a service provider and does not host or
+              produce any of the content available through our Service. All
+              channels, movies, TV shows, and other content are provided by
+              third parties over which NakedTurtle IPTV has no control.
+            </p>
+
+            <p>You agree that you will not use our Service to:</p>
+            <ul>
+              <li>
+                Reproduce, duplicate, copy, sell, resell, or exploit any portion
+                of the Service without express written permission by us
+              </li>
+              <li>
+                Use the Service for any illegal purpose, or to violate any laws
+                in your jurisdiction
+              </li>
+              <li>
+                Infringe upon or violate our intellectual property rights or the
+                intellectual property rights of others
+              </li>
+              <li>
+                Share your account credentials with others or allow multiple
+                users to use your account
+              </li>
+              <li>
+                Attempt to bypass any measures of the Service designed to
+                prevent or restrict access to the Service, or any portion of the
+                Service
+              </li>
+            </ul>
+          </div>
+
+          <div class="terms-section">
+            <h2>6. Service Availability</h2>
+            <p>
+              While we strive to provide uninterrupted service, we do not
+              guarantee that our Service will be available at all times. We may
+              experience hardware, software, or other problems or need to
+              perform maintenance related to the Service, resulting in
+              interruptions, delays, or errors.
+            </p>
+
+            <p>
+              We reserve the right to change, revise, update, suspend,
+              discontinue, or otherwise modify the Service at any time or for
+              any reason without notice to you. You agree that we have no
+              liability whatsoever for any loss, damage, or inconvenience caused
+              by your inability to access or use the Service during any downtime
+              or discontinuance of the Service.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>7. Accounts</h2>
+            <p>
+              When you create an account with us, you guarantee that the
+              information you provide is accurate, complete, and current at all
+              times. Inaccurate, incomplete, or obsolete information may result
+              in the immediate termination of your account on the Service.
+            </p>
+
+            <p>
+              You are responsible for maintaining the confidentiality of your
+              account and password, including but not limited to the restriction
+              of access to your computer and/or account. You agree to accept
+              responsibility for any and all activities or actions that occur
+              under your account and/or password.
+            </p>
+
+            <p>
+              You must notify us immediately upon becoming aware of any breach
+              of security or unauthorized use of your account.
+            </p>
+
+            <p>
+              We reserve the right to refuse service, terminate accounts, remove
+              or edit content, or cancel orders at our sole discretion.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>8. Intellectual Property</h2>
+            <p>
+              The Service and its original content (excluding content provided
+              by users or third-party content providers), features, and
+              functionality are and will remain the exclusive property of
+              NakedTurtle IPTV and its licensors. The Service is protected by
+              copyright, trademark, and other laws of both the United States and
+              foreign countries.
+            </p>
+
+            <p>
+              Our trademarks and trade dress may not be used in connection with
+              any product or service without the prior written consent of
+              NakedTurtle IPTV.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>9. Links To Other Websites</h2>
+            <p>
+              Our Service may contain links to third-party websites or services
+              that are not owned or controlled by NakedTurtle IPTV.
+            </p>
+
+            <p>
+              NakedTurtle IPTV has no control over, and assumes no
+              responsibility for the content, privacy policies, or practices of
+              any third-party websites or services. We do not warrant the
+              offerings of any of these entities/individuals or their websites.
+            </p>
+
+            <p>
+              You acknowledge and agree that NakedTurtle IPTV shall not be
+              responsible or liable, directly or indirectly, for any damage or
+              loss caused or alleged to be caused by or in connection with use
+              of or reliance on any such content, goods or services available on
+              or through any such third-party websites or services.
+            </p>
+
+            <p>
+              We strongly advise you to read the terms and conditions and
+              privacy policies of any third-party websites or services that you
+              visit.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>10. Termination</h2>
+            <p>
+              We may terminate or suspend your account and bar access to the
+              Service immediately, without prior notice or liability, under our
+              sole discretion, for any reason whatsoever and without limitation,
+              including but not limited to a breach of the Terms.
+            </p>
+
+            <p>
+              If you wish to terminate your account, you may simply discontinue
+              using the Service, or contact our support team to request account
+              deletion.
+            </p>
+
+            <p>
+              All provisions of the Terms which by their nature should survive
+              termination shall survive termination, including, without
+              limitation, ownership provisions, warranty disclaimers, indemnity
+              and limitations of liability.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>11. Limitation of Liability</h2>
+            <p>
+              In no event shall NakedTurtle IPTV, nor its directors, employees,
+              partners, agents, suppliers, or affiliates, be liable for any
+              indirect, incidental, special, consequential or punitive damages,
+              including without limitation, loss of profits, data, use,
+              goodwill, or other intangible losses, resulting from:
+            </p>
+            <ul>
+              <li>
+                Your access to or use of or inability to access or use the
+                Service
+              </li>
+              <li>Any conduct or content of any third party on the Service</li>
+              <li>Any content obtained from the Service</li>
+              <li>
+                Unauthorized access, use or alteration of your transmissions or
+                content
+              </li>
+            </ul>
+            <p>
+              Whether based on warranty, contract, tort (including negligence)
+              or any other legal theory, whether or not we have been informed of
+              the possibility of such damage, and even if a remedy set forth
+              herein is found to have failed of its essential purpose.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>12. Disclaimer</h2>
+            <p>
+              Your use of the Service is at your sole risk. The Service is
+              provided on an "AS IS" and "AS AVAILABLE" basis. The Service is
+              provided without warranties of any kind, whether express or
+              implied, including, but not limited to, implied warranties of
+              merchantability, fitness for a particular purpose,
+              non-infringement or course of performance.
+            </p>
+
+            <p>
+              NakedTurtle IPTV, its subsidiaries, affiliates, and its licensors
+              do not warrant that:
+            </p>
+            <ul>
+              <li>
+                The Service will function uninterrupted, secure or available at
+                any particular time or location
+              </li>
+              <li>Any errors or defects will be corrected</li>
+              <li>
+                The Service is free of viruses or other harmful components
+              </li>
+              <li>
+                The results of using the Service will meet your requirements
+              </li>
+            </ul>
+          </div>
+
+          <div class="terms-section">
+            <h2>13. Governing Law</h2>
+            <p>
+              These Terms shall be governed and construed in accordance with the
+              laws of the United States, without regard to its conflict of law
+              provisions.
+            </p>
+
+            <p>
+              Our failure to enforce any right or provision of these Terms will
+              not be considered a waiver of those rights. If any provision of
+              these Terms is held to be invalid or unenforceable by a court, the
+              remaining provisions of these Terms will remain in effect.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2>14. Changes to Terms</h2>
+            <p>
+              We reserve the right, at our sole discretion, to modify or replace
+              these Terms at any time. If a revision is material, we will
+              provide at least 30 days' notice prior to any new terms taking
+              effect. What constitutes a material change will be determined at
+              our sole discretion.
+            </p>
+
+            <p>
+              By continuing to access or use our Service after any revisions
+              become effective, you agree to be bound by the revised terms. If
+              you do not agree to the new terms, you are no longer authorized to
+              use the Service.
+            </p>
+          </div>
+
+          <div class="terms-contact">
+            <h3>Questions About Our Terms?</h3>
+            <p>
+              If you have any questions about these Terms of Service, please
+              contact us at
+              <a href="mailto:legal@nakedturtle.com">legal@nakedturtle.com</a>
+              or through our <a href="contact.html">contact page</a>.
+            </p>
+          </div>
         </div>
-        <!-- Terms Content -->
-        <section class="terms-content">
-            <div class="container">
-                <p class="terms-updated">Last Updated: May 1, 2025</p>
-                
-                <div class="terms-section">
-                    <h2>1. Introduction</h2>
-                    <p>Welcome to NakedTurtle IPTV ("Company", "we", "our", "us"). These Terms of Service ("Terms", "Terms of Service") govern your use of our website and services operated by NakedTurtle IPTV.</p>
-                    
-                    <p>By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>2. Communications</h2>
-                    <p>By creating an account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>3. Subscriptions</h2>
-                    <p>Some parts of the Service are billed on a subscription basis. You will be billed in advance on a recurring and periodic basis (such as monthly or annually), depending on the type of subscription plan you select when purchasing the subscription.</p>
-                    
-                    <p>At the end of each period, your subscription will automatically renew under the exact same conditions unless you cancel it or NakedTurtle IPTV cancels it.</p>
-                    
-                    <h3>3.1 Free Trial</h3>
-                    <p>We may, at our sole discretion, offer a subscription with a free trial for a limited period of time. You may be required to enter your billing information to sign up for the free trial.</p>
-                    
-                    <p>If you do not cancel the subscription before the free trial period is over, we will automatically charge the subscription fee for the type of subscription you have selected.</p>
-                    
-                    <h3>3.2 Subscription Cancellations</h3>
-                    <p>You may cancel your subscription renewal either through your online account management page or by contacting our customer support team. You will not receive a refund for the fees you already paid for your current subscription period, and you will continue to have access to the service through the end of your current subscription period.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>4. Refunds</h2>
-                    <p>Except when required by law, paid subscription fees are non-refundable.</p>
-                    
-                    <p>Certain refund requests may be considered by NakedTurtle IPTV on a case-by-case basis and granted at the sole discretion of NakedTurtle IPTV.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>5. Content</h2>
-                    <p>Our Service allows you to access content provided through various third-party sources. The content you access through our Service remains the property of the applicable content providers and may be protected by copyright, trademark, and other intellectual property laws.</p>
-                    
-                    <p>NakedTurtle IPTV is a service provider and does not host or produce any of the content available through our Service. All channels, movies, TV shows, and other content are provided by third parties over which NakedTurtle IPTV has no control.</p>
-                    
-                    <p>You agree that you will not use our Service to:</p>
-                    <ul>
-                        <li>Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Service without express written permission by us</li>
-                        <li>Use the Service for any illegal purpose, or to violate any laws in your jurisdiction</li>
-                        <li>Infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
-                        <li>Share your account credentials with others or allow multiple users to use your account</li>
-                        <li>Attempt to bypass any measures of the Service designed to prevent or restrict access to the Service, or any portion of the Service</li>
-                    </ul>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>6. Service Availability</h2>
-                    <p>While we strive to provide uninterrupted service, we do not guarantee that our Service will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Service, resulting in interruptions, delays, or errors.</p>
-                    
-                    <p>We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Service at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Service during any downtime or discontinuance of the Service.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>7. Accounts</h2>
-                    <p>When you create an account with us, you guarantee that the information you provide is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the Service.</p>
-                    
-                    <p>You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password.</p>
-                    
-                    <p>You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
-                    
-                    <p>We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders at our sole discretion.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>8. Intellectual Property</h2>
-                    <p>The Service and its original content (excluding content provided by users or third-party content providers), features, and functionality are and will remain the exclusive property of NakedTurtle IPTV and its licensors. The Service is protected by copyright, trademark, and other laws of both the United States and foreign countries.</p>
-                    
-                    <p>Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of NakedTurtle IPTV.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>9. Links To Other Websites</h2>
-                    <p>Our Service may contain links to third-party websites or services that are not owned or controlled by NakedTurtle IPTV.</p>
-                    
-                    <p>NakedTurtle IPTV has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites.</p>
-                    
-                    <p>You acknowledge and agree that NakedTurtle IPTV shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such third-party websites or services.</p>
-                    
-                    <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party websites or services that you visit.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>10. Termination</h2>
-                    <p>We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
-                    
-                    <p>If you wish to terminate your account, you may simply discontinue using the Service, or contact our support team to request account deletion.</p>
-                    
-                    <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>11. Limitation of Liability</h2>
-                    <p>In no event shall NakedTurtle IPTV, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
-                    <ul>
-                        <li>Your access to or use of or inability to access or use the Service</li>
-                        <li>Any conduct or content of any third party on the Service</li>
-                        <li>Any content obtained from the Service</li>
-                        <li>Unauthorized access, use or alteration of your transmissions or content</li>
-                    </ul>
-                    <p>Whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>12. Disclaimer</h2>
-                    <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
-                    
-                    <p>NakedTurtle IPTV, its subsidiaries, affiliates, and its licensors do not warrant that:</p>
-                    <ul>
-                        <li>The Service will function uninterrupted, secure or available at any particular time or location</li>
-                        <li>Any errors or defects will be corrected</li>
-                        <li>The Service is free of viruses or other harmful components</li>
-                        <li>The results of using the Service will meet your requirements</li>
-                    </ul>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>13. Governing Law</h2>
-                    <p>These Terms shall be governed and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
-                    
-                    <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
-                </div>
-                
-                <div class="terms-section">
-                    <h2>14. Changes to Terms</h2>
-                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
-                    
-                    <p>By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.</p>
-                </div>
-                
-                <div class="terms-contact">
-                    <h3>Questions About Our Terms?</h3>
-                    <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:legal@nakedturtle.com">legal@nakedturtle.com</a> or through our <a href="contact.html">contact page</a>.</p>
-                </div>
-            </div>
-        </section>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <!-- Column 1: Branding -->
-            <div class="footer-section">
-              <img src="/assets/images/UpdatedLogo.svg" alt="" width="250">
-                <p>The ultimate IPTV solution for all your entertainment needs.</p>
-                <a href="https://t.me/TurtleIPTV_Bot">
-                    <img src="/assets/images/telegram.svg" alt="Telegram" class="social-icon" />
-                </a>
-            </div>
-
-            <!-- Column 2: Quick Links -->
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                   <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#pricing">Pricing</a></li>
-                    <li><a href="./index.html#features">Features</a></li>
-                    <li><a href="./index.html#faq">FAQ</a></li>
-                    <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
-                    <li><a href="installation.html">Installation Guides</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Contact & Legal -->
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>support@nakedturtleiptv.com</p>
-                <p>24/7 Live Chat Support</p>
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="setup.html">Set Up</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Newsletter -->
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Get IPTV news & deals in your inbox:</p>
-                <form onsubmit="handleSubscribe(event)">
-                    <div class="newsletter">
-                        <input type="email" id="email" placeholder="Your email" required />
-                        <button type="submit">&#8594;</button>
-                    </div>
-                </form>
-            </div>
+      <div class="footer-container">
+        <!-- Column 1: Branding -->
+        <div class="footer-section">
+          <img src="/assets/images/UpdatedLogo.svg" alt="" width="250" />
+          <p>The ultimate IPTV solution for all your entertainment needs.</p>
+          <a href="https://t.me/TurtleIPTV_Bot">
+            <img
+              src="/assets/images/telegram.svg"
+              alt="Telegram"
+              class="social-icon"
+            />
+          </a>
         </div>
 
-        <!-- Bottom Section -->
-        <div class="footer-bottom">
-            <div class="payment-methods">
-                <img src="/assets/images/payment/visa.svg" alt="Visa" />
-                <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
-                <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
-                <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
-            </div>
-            <p>&copy; 2025 KyoStream IPTV. All rights reserved.</p>
+        <!-- Column 2: Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#pricing">Pricing</a></li>
+            <li><a href="./index.html#features">Features</a></li>
+            <li><a href="./index.html#faq">FAQ</a></li>
+            <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
+            <li><a href="installation.html">Installation Guides</a></li>
+          </ul>
         </div>
+
+        <!-- Column 3: Contact & Legal -->
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>support@nakedturtleiptv.com</p>
+          <p>24/7 Live Chat Support</p>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="setup.html">Set Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Get IPTV news & deals in your inbox:</p>
+          <form onsubmit="handleSubscribe(event)">
+            <div class="newsletter">
+              <input
+                type="email"
+                id="email"
+                placeholder="Your email"
+                required
+              />
+              <button type="submit">&#8594;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <img src="/assets/images/payment/visa.svg" alt="Visa" />
+          <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
+          <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
+          <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
+        </div>
+        <p>&copy; 2025 NakedTurtle IPTV. All rights reserved.</p>
+      </div>
     </footer>
-        <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menu-icon');
-            if (!menu || !icon) return; // Safeguard
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const icon = document.getElementById("menu-icon");
+        if (!menu || !icon) return; // Safeguard
 
-            if (menu.style.maxHeight) {
-                menu.style.maxHeight = null;
-                icon.textContent = '☰';
-            } else {
-                menu.style.maxHeight = '400px';
-                icon.textContent = '✕';
-            }
+        if (menu.style.maxHeight) {
+          menu.style.maxHeight = null;
+          icon.textContent = "☰";
+        } else {
+          menu.style.maxHeight = "400px";
+          icon.textContent = "✕";
         }
-
+      }
     </script>
     <!-- JavaScript Files -->
     <script src="js/main.js"></script>
-    <script
-        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
-</body>
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  </body>
 </html>
