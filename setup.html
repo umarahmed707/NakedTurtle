@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide - NakedTurtle IPTV</title>
+    <meta name="description" content="Step-by-step setup instructions for NakedTurtle IPTV on various devices including Firestick, Android TV, Smart TVs, iOS, and more.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- Billgang Product Embed Script -->
+    <script src="https://embed.billgang.store/embed.js"></script>
+    
+    <style>
+        /* Setup Guide Page Specific Styles */
+        .setup-hero {
+            padding: var(--spacing-3xl) 0;
+            position: relative;
+            text-align: center;
+            margin-top: 150px;
+        }
+        
+        .setup-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            
+        }
+        
+        .setup-hero h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .setup-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        .setup-guides{
+            margin-top: -240px;
+        }
+        .device-tabs {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        
+        .device-tabs-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .device-tab-trigger {
+           
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .device-tab-trigger.active {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+        
+        .device-tab-trigger:hover {
+            border-color: var(--color-primary);
+        }
+        
+        .device-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .device-tab {
+            display: none;
+        }
+        
+        .device-tab.active {
+            display: block;
+        }
+        
+        .setup-steps {
+            background-color: rgba(24, 24, 27, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .step-item {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .step-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .step-content p {
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .step-image {
+            margin: var(--spacing-md) 0;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+        
+        .step-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .setup-note {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .setup-note h4 {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+        
+        .setup-note p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text);
+        }
+        
+        .troubleshooting {
+            margin-top: var(--spacing-2xl);
+        }
+        
+        .faq-accordion {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .faq-item {
+            background-color: rgba(24, 24, 27, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: var(--font-size-xl);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            color: var(--color-text-muted);
+            display: none;
+        }
+          .faq-answer ul {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .support-cta {
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+            background-color: rgba(24, 24, 27, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+        }
+        
+        .support-cta h3 {
+            font-size:30px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .support-cta p {
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .setup-hero h1 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .device-tabs-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .device-tab-trigger {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .step-item {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <div class="w-full h-18">
+
+        <header class="navbar fixed top-0 left-0 right-0 z-50">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <a href="/">
+                        <img src="./assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" width="200" height="40" />
+                    </a>
+
+                    <!-- Desktop Navigation -->
+                   <nav class="nav-links">
+                        <a href="./index.html#features">Features</a>
+                        <a href="./index.html#pricing">Pricing</a>
+                        <a href="./index.html#faq">FAQ</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="installation.html">Installation Guides</a>
+                    </nav>
+
+                    <!-- Buttons -->
+                    <div class="nav-actions">
+                        <a href="https://t.me/TurtleIPTV_Bot" class="trial-btn">Free Trial</a>
+                        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                            <span id="menu-icon">☰</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu" id="mobileMenu">
+                <nav>
+                    <a href="#features" onclick="toggleMenu()">Features</a>
+                    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+                    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+                    <a href="/contact" onclick="toggleMenu()">Contact</a>
+                    <a href="/contact" onclick="toggleMenu()">Installation Guides</a>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <div class="img-section">
+        <!-- Setup Hero Section -->
+        <section class="setup-hero">
+            <div class="container">
+                <div class="badge">SETUP GUIDE</div>
+                <h1>How to Set Up NakedTurtle IPTV</h1>
+                <p>Follow our step-by-step instructions to set up NakedTurtle IPTV on your preferred device. Our guides cover all popular platforms and are designed to get you streaming in minutes.</p>
+            </div>
+        </section>
+        </div>
+        <!-- Device Setup Guides -->
+        <section class="setup-guides">
+            <div class="container">
+                <div class="device-tabs">
+                    <div class="device-tabs-list">
+                        <button class="device-tab-trigger active" data-device="firestick">
+                            <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                            </svg>
+                            Firestick
+                        </button>
+                        
+                        <button class="device-tab-trigger" data-device="android">
+                            <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            Android TV
+                        </button>
+                        
+                        <button class="device-tab-trigger" data-device="smarttv">
+                            <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                                <polyline points="17 2 12 7 7 2"></polyline>
+                            </svg>
+                            Smart TV
+                        </button>
+                        
+                        <button class="device-tab-trigger" data-device="ios">
+                            <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            iOS
+                        </button>
+                        
+                        <button class="device-tab-trigger" data-device="pc">
+                            <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            PC/Mac
+                        </button>
+                    </div>
+                    
+                    <!-- Firestick Setup -->
+                    <div class="device-tab active" data-device="firestick">
+                        <h2>Amazon Firestick Setup Guide</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Enable Apps from Unknown Sources</h3>
+                                    <p>First, you need to allow installation of apps from unknown sources:</p>
+                                    <ul>
+                                        <li>Go to <strong>Settings</strong> on your Firestick</li>
+                                        <li>Select <strong>My Fire TV</strong> or <strong>Device</strong></li>
+                                        <li>Choose <strong>Developer Options</strong></li>
+                                        <li>Turn on <strong>Apps from Unknown Sources</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Install Downloader App</h3>
+                                    <p>Next, install the Downloader app to download the IPTV player:</p>
+                                    <ul>
+                                        <li>Go to the <strong>Search</strong> icon on your Firestick home screen</li>
+                                        <li>Type <strong>Downloader</strong> and select it from the results</li>
+                                        <li>Click <strong>Download</strong> or <strong>Get</strong> to install</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Download and Install IPTV Player</h3>
+                                    <p>Now, download and install an IPTV player app (we recommend TiviMate or IPTV Smarters):</p>
+                                    <ul>
+                                        <li>Open the <strong>Downloader</strong> app</li>
+                                        <li>Enter one of these URLs in the address bar:
+                                            <ul>
+                                                <li>For TiviMate: <strong>https://tinyurl.com/tivimate-latest</strong></li>
+                                                <li>For IPTV Smarters: <strong>https://tinyurl.com/smarters-latest</strong></li>
+                                            </ul>
+                                        </li>
+                                        <li>Click <strong>Go</strong> to download the APK file</li>
+                                        <li>Select <strong>Install</strong> when prompted</li>
+                                        <li>Click <strong>Done</strong> after installation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Configure IPTV Player with Your Subscription</h3>
+                                    <p>Finally, set up the IPTV player with your NakedTurtle subscription:</p>
+                                    <ul>
+                                        <li>Open the IPTV player app you installed</li>
+                                        <li>Select <strong>Add Playlist</strong> or <strong>Add New Subscription</strong></li>
+                                        <li>Choose <strong>URL</strong> or <strong>M3U URL</strong> option</li>
+                                        <li>Enter your M3U URL provided in your welcome email</li>
+                                        <li>Enter your EPG URL (also provided in welcome email) if prompted</li>
+                                        <li>Name your playlist (e.g., "NakedTurtle IPTV")</li>
+                                        <li>Save and enjoy your channels!</li>
+                                    </ul>
+                                    
+                                    <div class="setup-note">
+                                        <h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                            </svg>
+                                            Important Note
+                                        </h4>
+                                        <p>Your M3U URL and EPG URL are unique to your account. Never share these links with others as it may result in account suspension.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Android TV Setup -->
+                    <div class="device-tab" data-device="android">
+                        <h2>Android TV Setup Guide</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Enable Apps from Unknown Sources</h3>
+                                    <p>First, enable installation from unknown sources:</p>
+                                    <ul>
+                                        <li>Go to <strong>Settings</strong> on your Android TV</li>
+                                        <li>Select <strong>Security</strong> or <strong>Privacy</strong></li>
+                                        <li>Enable <strong>Unknown Sources</strong> or <strong>Install unknown apps</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Install IPTV Player</h3>
+                                    <p>Install an IPTV player app from the Google Play Store:</p>
+                                    <ul>
+                                        <li>Open the <strong>Google Play Store</strong></li>
+                                        <li>Search for <strong>TiviMate</strong>, <strong>IPTV Smarters</strong>, or <strong>VLC</strong></li>
+                                        <li>Select the app and click <strong>Install</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Configure IPTV Player</h3>
+                                    <p>Set up the IPTV player with your NakedTurtle subscription:</p>
+                                    <ul>
+                                        <li>Open the IPTV player app</li>
+                                        <li>Look for <strong>Add Playlist</strong>, <strong>Add Subscription</strong>, or similar option</li>
+                                        <li>Select <strong>URL</strong> or <strong>M3U URL</strong> method</li>
+                                        <li>Enter your M3U URL from your welcome email</li>
+                                        <li>Add your EPG URL if prompted</li>
+                                        <li>Name your playlist and save</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Optimize Playback Settings</h3>
+                                    <p>For the best experience, adjust these settings:</p>
+                                    <ul>
+                                        <li>Go to app <strong>Settings</strong></li>
+                                        <li>Set <strong>Video Quality</strong> based on your internet speed</li>
+                                        <li>Enable <strong>Hardware Acceleration</strong> if available</li>
+                                        <li>Adjust <strong>Buffer Size</strong> if you experience any playback issues</li>
+                                    </ul>
+                                    
+                                    <div class="setup-note">
+                                        <h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                            </svg>
+                                            Recommended
+                                        </h4>
+                                        <p>For Android TV boxes, we recommend using a wired ethernet connection instead of Wi-Fi for the most stable streaming experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart TV Setup -->
+                    <div class="device-tab" data-device="smarttv">
+                        <h2>Smart TV Setup Guide</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Install IPTV Player App</h3>
+                                    <p>Install an IPTV player app from your TV's app store:</p>
+                                    <ul>
+                                        <li>For Samsung TVs: Search for <strong>Smart IPTV</strong> or <strong>SS IPTV</strong> in the Samsung App Store</li>
+                                        <li>For LG TVs: Search for <strong>Smart IPTV</strong> in the LG Content Store</li>
+                                        <li>For other Smart TVs: Look for any IPTV player app in your TV's app store</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Configure IPTV Player</h3>
+                                    <p>Set up the app with your NakedTurtle subscription:</p>
+                                    <ul>
+                                        <li>Open the installed IPTV player app</li>
+                                        <li>Navigate to <strong>Settings</strong> or <strong>Configuration</strong></li>
+                                        <li>Look for <strong>Add Playlist</strong> or <strong>Add M3U URL</strong> option</li>
+                                        <li>Enter your M3U URL from your welcome email</li>
+                                        <li>Add your EPG URL if prompted</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Alternative Method: USB Loading</h3>
+                                    <p>If your TV doesn't support direct URL input, try the USB method:</p>
+                                    <ul>
+                                        <li>On a computer, open your M3U URL in a browser</li>
+                                        <li>Save the content as a file named "playlist.m3u" on a USB drive</li>
+                                        <li>Insert the USB drive into your Smart TV</li>
+                                        <li>Open your IPTV player app and look for an option to load from USB or external storage</li>
+                                        <li>Navigate to and select the playlist.m3u file</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Optimize TV Settings</h3>
+                                    <p>For the best streaming experience:</p>
+                                    <ul>
+                                        <li>Ensure your TV is connected to a stable internet connection</li>
+                                        <li>Use a wired ethernet connection if possible</li>
+                                        <li>Close other apps running in the background</li>
+                                        <li>Adjust picture settings for optimal viewing</li>
+                                    </ul>
+                                    
+                                    <div class="setup-note">
+                                        <h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                            </svg>
+                                            Compatibility Note
+                                        </h4>
+                                        <p>Some older Smart TVs may have limited processing power. If you experience performance issues, consider using an external device like a Firestick or Android TV box.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- iOS Setup -->
+                    <div class="device-tab" data-device="ios">
+                        <h2>iPhone/iPad Setup Guide</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Install IPTV Player App</h3>
+                                    <p>Download an IPTV player app from the App Store:</p>
+                                    <ul>
+                                        <li>Open the <strong>App Store</strong> on your iOS device</li>
+                                        <li>Search for one of these recommended apps:
+                                            <ul>
+                                                <li><strong>IPTV Smarters Pro</strong></li>
+                                                <li><strong>GSE Smart IPTV</strong></li>
+                                                <li><strong>iPlayTV</strong></li>
+                                            </ul>
+                                        </li>
+                                        <li>Tap <strong>Get</strong> or the download icon to install</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Configure IPTV Player</h3>
+                                    <p>Set up the app with your NakedTurtle subscription:</p>
+                                    <ul>
+                                        <li>Open the IPTV player app you installed</li>
+                                        <li>Look for <strong>Add Playlist</strong>, <strong>Add URL</strong>, or <strong>+</strong> icon</li>
+                                        <li>Select the option to add via M3U URL</li>
+                                        <li>Enter your M3U URL from your welcome email</li>
+                                        <li>Add your EPG URL if prompted</li>
+                                        <li>Name your playlist (e.g., "NakedTurtle IPTV")</li>
+                                        <li>Save the configuration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Adjust Playback Settings</h3>
+                                    <p>Optimize your viewing experience:</p>
+                                    <ul>
+                                        <li>Go to app <strong>Settings</strong></li>
+                                        <li>Set <strong>Video Quality</strong> based on your internet connection</li>
+                                        <li>Adjust <strong>Buffer Size</strong> if needed</li>
+                                        <li>Enable <strong>Hardware Decoding</strong> if available</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>AirPlay to Apple TV (Optional)</h3>
+                                    <p>To watch on a larger screen:</p>
+                                    <ul>
+                                        <li>Make sure your iOS device and Apple TV are on the same Wi-Fi network</li>
+                                        <li>Start playing a channel in your IPTV app</li>
+                                        <li>Swipe down from the top-right corner (or up from the bottom on older devices) to open Control Center</li>
+                                        <li>Tap the <strong>AirPlay</strong> icon</li>
+                                        <li>Select your Apple TV from the list</li>
+                                    </ul>
+                                    
+                                    <div class="setup-note">
+                                        <h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                            </svg>
+                                            Data Usage Warning
+                                        </h4>
+                                        <p>Streaming IPTV consumes significant data. We recommend using Wi-Fi instead of cellular data to avoid exceeding your mobile data plan limits.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PC/Mac Setup -->
+                    <div class="device-tab" data-device="pc">
+                        <h2>PC/Mac Setup Guide</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Choose a Media Player</h3>
+                                    <p>Download and install one of these recommended media players:</p>
+                                    <ul>
+                                        <li><strong>VLC Media Player</strong>: <a href="https://www.videolan.org/vlc/" target="_blank">Download here</a></li>
+                                        <li><strong>Kodi</strong>: <a href="https://kodi.tv/download/" target="_blank">Download here</a></li>
+                                        <li><strong>MyIPTV Player</strong> (Windows only): <a href="https://www.microsoft.com/store/apps/9pjj2nmbf0tr" target="_blank">Download here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Configure VLC Media Player</h3>
+                                    <p>If using VLC (the simplest option):</p>
+                                    <ul>
+                                        <li>Open VLC Media Player</li>
+                                        <li>Click on <strong>Media</strong> in the top menu</li>
+                                        <li>Select <strong>Open Network Stream</strong></li>
+                                        <li>Paste your M3U URL in the network URL field</li>
+                                        <li>Click <strong>Play</strong></li>
+                                        <li>To save the playlist: Click <strong>Media</strong> > <strong>Save Playlist to File</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Configure Kodi (Alternative)</h3>
+                                    <p>If using Kodi:</p>
+                                    <ul>
+                                        <li>Open Kodi</li>
+                                        <li>Go to <strong>Add-ons</strong></li>
+                                        <li>Click the <strong>Package Icon</strong> (top-left)</li>
+                                        <li>Select <strong>Install from repository</strong></li>
+                                        <li>Choose <strong>Kodi Add-on repository</strong></li>
+                                        <li>Go to <strong>PVR Clients</strong></li>
+                                        <li>Select <strong>PVR IPTV Simple Client</strong> and install it</li>
+                                        <li>After installation, go to <strong>Settings</strong> of the PVR IPTV Simple Client</li>
+                                        <li>Under <strong>General</strong>, set <strong>M3U Play List URL</strong> to your M3U URL</li>
+                                        <li>Set <strong>EPG URL</strong> to your EPG URL</li>
+                                        <li>Click <strong>OK</strong> and restart Kodi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Optimize Playback Settings</h3>
+                                    <p>For the best experience on PC/Mac:</p>
+                                    <ul>
+                                        <li>Ensure your computer meets the minimum requirements for HD streaming</li>
+                                        <li>Close unnecessary applications to free up system resources</li>
+                                        <li>Use a wired internet connection if possible</li>
+                                        <li>Adjust video output settings in your player for optimal performance</li>
+                                    </ul>
+                                    
+                                    <div class="setup-note">
+                                        <h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                            </svg>
+                                            Pro Tip
+                                        </h4>
+                                        <p>For a more TV-like experience on your computer, consider using Kodi with the PVR IPTV Simple Client as it provides a full-featured electronic program guide and recording capabilities.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Troubleshooting Section -->
+        <section class="troubleshooting">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Troubleshooting Common Issues</h2>
+                    <p>Having problems with your setup? Check these common solutions.</p>
+                </div>
+                
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <div class="faq-question">Channels not loading or buffering issues</div>
+                        <div class="faq-answer">
+                            <p>Try these solutions:</p>
+                            <ul>
+                                <li>Check your internet connection speed (minimum 10 Mbps recommended)</li>
+                                <li>Try a wired connection instead of Wi-Fi</li>
+                                <li>Restart your device and router</li>
+                                <li>Increase the buffer size in your IPTV player settings</li>
+                                <li>Try a different IPTV player app</li>
+                                <li>Contact our support if the issue persists</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">EPG (TV Guide) not showing</div>
+                        <div class="faq-answer">
+                            <p>To fix EPG issues:</p>
+                            <ul>
+                                <li>Make sure you've entered the correct EPG URL in your player settings</li>
+                                <li>Allow sufficient time for the EPG data to load (can take up to 5-10 minutes)</li>
+                                <li>Try clearing the EPG cache in your player settings</li>
+                                <li>Restart your IPTV player app</li>
+                                <li>Check if your player supports EPG functionality</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Playback errors or crashes</div>
+                        <div class="faq-answer">
+                            <p>If your player crashes or shows errors:</p>
+                            <ul>
+                                <li>Update your IPTV player app to the latest version</li>
+                                <li>Check if your device has sufficient storage space</li>
+                                <li>Try a different IPTV player app</li>
+                                <li>Restart your device</li>
+                                <li>For Android/Firestick: Clear app cache and data</li>
+                                <li>Reinstall the IPTV player app</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Can't find specific channels</div>
+                        <div class="faq-answer">
+                            <p>To locate channels more easily:</p>
+                            <ul>
+                                <li>Use the search function in your IPTV player</li>
+                                <li>Check different categories (Sports, News, Entertainment, etc.)</li>
+                                <li>Sort channels alphabetically if your player supports it</li>
+                                <li>Create a favorites list for your most-watched channels</li>
+                                <li>Contact support if you believe a channel should be available but isn't</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Poor video quality</div>
+                        <div class="faq-answer">
+                            <p>To improve video quality:</p>
+                            <ul>
+                                <li>Check your internet speed (minimum 25 Mbps recommended for HD content)</li>
+                                <li>Ensure no other devices are using significant bandwidth</li>
+                                <li>Try a wired connection instead of Wi-Fi</li>
+                                <li>Adjust video quality settings in your IPTV player</li>
+                                <li>Enable hardware acceleration if available</li>
+                                <li>Some channels may have inherently lower quality than others</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Support CTA -->
+        <section class="support-cta">
+            <div class="container">
+                <h3>Need Additional Help?</h3>
+                <p>Our support team is available 24/7 to assist you with any setup issues or questions you may have about your NakedTurtle IPTV service.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                    <a href="https://discord.gg/nakedturtle" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Join Discord Community</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 1: Branding -->
+            <div class="footer-section">
+            <img src="/assets/images/UpdatedLogo.svg" alt="" width="250">
+                <p>The ultimate IPTV solution for all your entertainment needs.</p>
+                <a href="https://t.me/TurtleIPTV_Bot">
+                   <img src="/assets/images/telegram.svg" alt="Telegram" class="social-icon" />
+                </a>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#pricing">Pricing</a></li>
+                    <li><a href="./index.html#features">Features</a></li>
+                    <li><a href="./index.html#faq">FAQ</a></li>
+                    <li><a href="https://t.me/TurtleIPTV_Bot ">Contact</a></li>
+                    <li><a href="installation.html">Installation Guides</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact & Legal -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>support@nakedturtleiptv.com</p>
+                <p>24/7 Live Chat Support</p>
+                <h4>Legal</h4>
+                 <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="setup.html">Set Up</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Newsletter -->
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Get IPTV news & deals in your inbox:</p>
+                <form onsubmit="handleSubscribe(event)">
+                    <div class="newsletter">
+                        <input type="email" id="email" placeholder="Your email" required />
+                        <button type="submit">&#8594;</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+            <div class="footer-bottom">
+            <div class="payment-methods">
+                <img src="/assets/images/payment/visa.svg" alt="Visa" />
+                <img src="/assets/images/payment/mastercard.svg" alt="MasterCard" />
+                <img src="/assets/images/payment/paypal.svg" alt="PayPal" />
+                <img src="/assets/images/payment/bitcoin.svg" alt="Bitcoin" />
+            </div>
+            <p>&copy; 2025 KyoStream IPTV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script>
+        // Device tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabTriggers = document.querySelectorAll('.device-tab-trigger');
+            const deviceTabs = document.querySelectorAll('.device-tab');
+            
+            tabTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    // Remove active class from all triggers and tabs
+                    tabTriggers.forEach(t => t.classList.remove('active'));
+                    deviceTabs.forEach(tab => tab.classList.remove('active'));
+                    
+                    // Add active class to clicked trigger
+                    this.classList.add('active');
+                    
+                    // Show corresponding tab
+                    const device = this.getAttribute('data-device');
+                    const targetTab = document.querySelector(`.device-tab[data-device="${device}"]`);
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                    }
+                });
+            });
+            
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+        <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menu-icon');
+            if (!menu || !icon) return; // Safeguard
+
+            if (menu.style.maxHeight) {
+                menu.style.maxHeight = null;
+                icon.textContent = '☰';
+            } else {
+                menu.style.maxHeight = '400px';
+                icon.textContent = '✕';
+            }
+        }
+
+    </script>
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+</body>
+</html>
