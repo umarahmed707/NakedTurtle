@@ -1,666 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free IPTV Trial - NakedTurtle IPTV</title>
-    <meta name="description"
-        content="Try NakedTurtle IPTV free for 24 hours. Experience premium channels, HD quality, and no buffering before subscribing.">
+    <meta
+      name="description"
+      content="Try NakedTurtle IPTV free for 24 hours. Experience premium channels, HD quality, and no buffering before subscribing."
+    />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
     <!-- Billgang Product Embed Script -->
     <script src="https://embed.billgang.store/embed.js"></script>
 
     <style>
-        /* Free Trial Page Specific Styles */
-        .trial-hero {
-            padding: var(--spacing-3xl) 0;
-            position: relative;
-            text-align: center;
-        }
+      /* Free Trial Page Specific Styles */
+      .trial-hero {
+        padding: var(--spacing-3xl) 0;
+        position: relative;
+        text-align: center;
+      }
 
-        .trial-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 60%);
-            z-index: -1;
-        }
+      .trial-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at top right,
+            rgba(16, 185, 129, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(139, 92, 246, 0.1),
+            transparent 60%
+          );
+        z-index: -1;
+      }
 
-        .trial-hero h1 {
-            font-size: var(--font-size-4xl);
-            font-weight: 800;
-            margin-bottom: var(--spacing-md);
-        }
+      .trial-hero h1 {
+        font-size: var(--font-size-4xl);
+        font-weight: 800;
+        margin-bottom: var(--spacing-md);
+      }
 
-        .trial-hero p {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-muted);
-            max-width: 700px;
-            margin: 0 auto var(--spacing-xl);
-        }
+      .trial-hero p {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-muted);
+        max-width: 700px;
+        margin: 0 auto var(--spacing-xl);
+      }
 
-        .trial-benefits {
-            padding: var(--spacing-2xl) 0;
-            background-color: rgba(24, 24, 27, 0.3);
-        }
+      .trial-benefits {
+        padding: var(--spacing-2xl) 0;
+        background-color: rgba(24, 24, 27, 0.3);
+      }
 
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+      }
+
+      .benefit-card {
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-lg);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--color-primary);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1);
+      }
+
+      .benefit-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto var(--spacing-md);
+        color: var(--color-primary);
+      }
+
+      .benefit-card h3 {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .benefit-card p {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-base);
+      }
+
+      .how-it-works {
+        padding: var(--spacing-2xl) 0;
+      }
+
+      .steps-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: var(--spacing-xl);
+        position: relative;
+      }
+
+      .steps-container::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--color-primary),
+          var(--color-primary-light)
+        );
+        z-index: 0;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 25%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(
+          to right,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: white;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .step h3 {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .step p {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+        max-width: 200px;
+      }
+
+      .trial-form-section {
+        padding: var(--spacing-2xl) 0;
+        background-color: rgba(24, 24, 27, 0.3);
+      }
+
+      .trial-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-xl);
+      }
+
+      .trial-form {
+        display: grid;
+        gap: var(--spacing-md);
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+
+      .form-group label {
+        font-weight: 600;
+        font-size: var(--font-size-sm);
+      }
+
+      .form-group input,
+      .form-group select {
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        border: 1px solid var(--color-border);
+        background-color: rgba(24, 24, 27, 0.7);
+        color: var(--color-text);
+        font-size: var(--font-size-base);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+
+      .testimonials {
+        padding: var(--spacing-2xl) 0;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+      }
+
+      .testimonial-card {
+        background-color: rgba(24, 24, 27, 0.5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-lg);
+        position: relative;
+      }
+
+      .testimonial-quote {
+        font-size: var(--font-size-xl);
+        color: var(--color-primary);
+        position: absolute;
+        top: var(--spacing-md);
+        left: var(--spacing-md);
+        opacity: 0.2;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-muted);
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+      }
+
+      .author-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        font-weight: 600;
+        font-size: var(--font-size-sm);
+      }
+
+      .author-info p {
+        font-size: var(--font-size-xs);
+        color: var(--color-text-muted);
+      }
+
+      @media (max-width: 992px) {
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-xl);
-        }
-
-        .benefit-card {
-            background-color: rgba(24, 24, 27, 0.5);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-primary);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1);
-        }
-
-        .benefit-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto var(--spacing-md);
-            color: var(--color-primary);
-        }
-
-        .benefit-card h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .benefit-card p {
-            color: var(--color-text-muted);
-            font-size: var(--font-size-base);
-        }
-
-        .how-it-works {
-            padding: var(--spacing-2xl) 0;
-        }
-
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: var(--spacing-xl);
-            position: relative;
-        }
-
-        .steps-container::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
-            z-index: 0;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 25%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            color: white;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .step h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .step p {
-            color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
-            max-width: 200px;
-        }
-
-        .trial-form-section {
-            padding: var(--spacing-2xl) 0;
-            background-color: rgba(24, 24, 27, 0.3);
-        }
-
-        .trial-form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: rgba(24, 24, 27, 0.5);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-xl);
-        }
-
-        .trial-form {
-            display: grid;
-            gap: var(--spacing-md);
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-xs);
-        }
-
-        .form-group label {
-            font-weight: 600;
-            font-size: var(--font-size-sm);
-        }
-
-        .form-group input,
-        .form-group select {
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--border-radius-md);
-            border: 1px solid var(--color-border);
-            background-color: rgba(24, 24, 27, 0.7);
-            color: var(--color-text);
-            font-size: var(--font-size-base);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-        }
-
-        .testimonials {
-            padding: var(--spacing-2xl) 0;
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-lg);
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .trial-hero h1 {
+          font-size: var(--font-size-3xl);
         }
 
-        .testimonial-card {
-            background-color: rgba(24, 24, 27, 0.5);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            position: relative;
+        .benefits-grid {
+          grid-template-columns: 1fr;
         }
 
-        .testimonial-quote {
-            font-size: var(--font-size-xl);
-            color: var(--color-primary);
-            position: absolute;
-            top: var(--spacing-md);
-            left: var(--spacing-md);
-            opacity: 0.2;
+        .steps-container {
+          flex-direction: column;
+          align-items: center;
+          gap: var(--spacing-xl);
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-muted);
-            position: relative;
-            z-index: 1;
+        .steps-container::before {
+          display: none;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
+        .step {
+          width: 100%;
+          max-width: 300px;
         }
 
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
+        .testimonials-grid {
+          grid-template-columns: 1fr;
         }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-weight: 600;
-            font-size: var(--font-size-sm);
-        }
-
-        .author-info p {
-            font-size: var(--font-size-xs);
-            color: var(--color-text-muted);
-        }
-
-        @media (max-width: 992px) {
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .trial-hero h1 {
-                font-size: var(--font-size-3xl);
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps-container {
-                flex-direction: column;
-                align-items: center;
-                gap: var(--spacing-xl);
-            }
-
-            .steps-container::before {
-                display: none;
-            }
-
-            .step {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Header/Navigation -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo">
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="index.html#faq">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="header-buttons">
-                    <a href="free-iptv-trial.html" class="btn btn-secondary">Free Trial</a>
-                    <a href="index.html#pricing" class="btn btn-primary">Get Started</a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">
+              <img src="assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" />
+            </a>
+          </div>
+          <nav class="main-nav">
+            <ul class="nav-list">
+              <li><a href="index.html#features">Features</a></li>
+              <li><a href="index.html#pricing">Pricing</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-buttons">
+            <a href="free-iptv-trial.html" class="btn btn-secondary"
+              >Free Trial</a
+            >
+            <a href="index.html#pricing" class="btn btn-primary">Get Started</a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
     </header>
 
     <main>
-        <!-- Trial Hero Section -->
-        <section class="trial-hero">
-            <div class="container">
-                <div class="badge">FREE TRIAL</div>
-                <h1>Try NakedTurtle IPTV Free for 24 Hours</h1>
-                <p>Experience our premium IPTV service with full access to all channels, movies, and features. No credit
-                    card required, no obligations.</p>
-                <a href="#trial-form" class="btn btn-primary btn-lg">Start Free Trial Now</a>
+      <!-- Trial Hero Section -->
+      <section class="trial-hero">
+        <div class="container">
+          <div class="badge">FREE TRIAL</div>
+          <h1>Try NakedTurtle IPTV Free for 24 Hours</h1>
+          <p>
+            Experience our premium IPTV service with full access to all
+            channels, movies, and features. No credit card required, no
+            obligations.
+          </p>
+          <a href="#trial-form" class="btn btn-primary btn-lg"
+            >Start Free Trial Now</a
+          >
+        </div>
+      </section>
+
+      <!-- Trial Benefits Section -->
+      <section class="trial-benefits">
+        <div class="container">
+          <div class="section-header">
+            <h2>What You'll Get in Your Free Trial</h2>
+            <p>
+              Our free trial gives you complete access to everything NakedTurtle
+              IPTV has to offer.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
+              <h3>25,000+ Live Channels</h3>
+              <p>
+                Access our complete channel lineup including sports, news,
+                entertainment, and international channels.
+              </p>
             </div>
-        </section>
 
-        <!-- Trial Benefits Section -->
-        <section class="trial-benefits">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What You'll Get in Your Free Trial</h2>
-                    <p>Our free trial gives you complete access to everything NakedTurtle IPTV has to offer.</p>
-                </div>
-
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                            <polyline points="17 2 12 7 7 2"></polyline>
-                        </svg>
-                        <h3>15,000+ Live Channels</h3>
-                        <p>Access our complete channel lineup including sports, news, entertainment, and international
-                            channels.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                            <line x1="7" y1="2" x2="7" y2="22"></line>
-                            <line x1="17" y1="2" x2="17" y2="22"></line>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <line x1="2" y1="7" x2="7" y2="7"></line>
-                            <line x1="2" y1="17" x2="7" y2="17"></line>
-                            <line x1="17" y1="17" x2="22" y2="17"></line>
-                            <line x1="17" y1="7" x2="22" y2="7"></line>
-                        </svg>
-                        <h3>50,000+ Movies & Shows</h3>
-                        <p>Explore our extensive VOD library with the latest movies, TV series, and exclusive content.
-                        </p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <h3>Premium Features</h3>
-                        <p>Experience HD & 4K quality, 7-day catch-up, EPG, and multi-device compatibility.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                        <h3>Multi-Device Support</h3>
-                        <p>Test our service on your preferred devices including Smart TVs, Firestick, smartphones, and
-                            more.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                        </svg>
-                        <h3>No Buffering Technology</h3>
-                        <p>Experience our optimized streaming technology that ensures smooth playback without
-                            interruptions.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                            <path
-                                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                            </path>
-                        </svg>
-                        <h3>24/7 Support Access</h3>
-                        <p>Get full access to our customer support team during your trial period for any assistance
-                            needed.</p>
-                    </div>
-                </div>
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="2.18"
+                  ry="2.18"
+                ></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+              <h3>50,000+ Movies & Shows</h3>
+              <p>
+                Explore our extensive VOD library with the latest movies, TV
+                series, and exclusive content.
+              </p>
             </div>
-        </section>
 
-        <!-- How It Works Section -->
-        <section class="how-it-works">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How to Get Started with Your Free Trial</h2>
-                    <p>Follow these simple steps to begin your 24-hour free IPTV trial.</p>
-                </div>
-
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Fill the Form</h3>
-                        <p>Complete the trial request form with your basic information.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Check Email</h3>
-                        <p>Receive login credentials and setup instructions via email.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Setup Device</h3>
-                        <p>Follow our simple setup guide to configure your preferred device.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Enjoy IPTV</h3>
-                        <p>Start streaming thousands of channels and VOD content instantly.</p>
-                    </div>
-                </div>
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h3>Premium Features</h3>
+              <p>
+                Experience HD & 4K quality, 7-day catch-up, EPG, and
+                multi-device compatibility.
+              </p>
             </div>
-        </section>
 
-        <!-- Trial Form Section -->
-        <section id="trial-form" class="trial-form-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Request Your Free 24-Hour IPTV Trial</h2>
-                    <p>Fill out the form below to get instant access to your free trial. No credit card required.</p>
-                </div>
-
-                <div class="trial-form-container">
-                    <form class="trial-form" id="trialForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="device">Primary Device</label>
-                            <select id="device" name="device" required>
-                                <option value="">Select your primary device</option>
-                                <option value="firestick">Amazon Firestick</option>
-                                <option value="android">Android TV Box</option>
-                                <option value="smarttv">Smart TV</option>
-                                <option value="ios">iPhone/iPad</option>
-                                <option value="android-mobile">Android Phone/Tablet</option>
-                                <option value="windows">Windows PC</option>
-                                <option value="mac">Mac</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="referral">How did you hear about us?</label>
-                            <select id="referral" name="referral">
-                                <option value="">Select an option</option>
-                                <option value="search">Search Engine</option>
-                                <option value="social">Social Media</option>
-                                <option value="friend">Friend/Family</option>
-                                <option value="review">Review Site</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Start My Free Trial</button>
-                    </form>
-                </div>
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+              <h3>Multi-Device Support</h3>
+              <p>
+                Test our service on your preferred devices including Smart TVs,
+                Firestick, smartphones, and more.
+              </p>
             </div>
-        </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What Our Customers Say</h2>
-                    <p>Hear from users who started with a free trial and became loyal customers.</p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">I was skeptical at first, but the free trial convinced me. The
-                            channel quality and reliability are outstanding. No more buffering issues like I had with my
-                            previous provider.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="assets/images/placeholder-user.jpg" alt="User Avatar">
-                            </div>
-                            <div class="author-info">
-                                <h4>Michael T.</h4>
-                                <p>Customer for 8 months</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">The free trial let me test everything before committing. I was
-                            impressed by the channel selection and video quality. Their customer support was also very
-                            helpful during setup.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="assets/images/placeholder-user.jpg" alt="User Avatar">
-                            </div>
-                            <div class="author-info">
-                                <h4>Sarah K.</h4>
-                                <p>Customer for 1 year</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">After trying several IPTV services, NakedTurtle stands out for its
-                            stability and channel variety. The free trial was a great way to see the difference before
-                            subscribing.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="assets/images/placeholder-user.jpg" alt="User Avatar">
-                            </div>
-                            <div class="author-info">
-                                <h4>David R.</h4>
-                                <p>Customer for 6 months</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+              <h3>No Buffering Technology</h3>
+              <p>
+                Experience our optimized streaming technology that ensures
+                smooth playback without interruptions.
+              </p>
             </div>
-        </section>
+
+            <div class="benefit-card">
+              <svg
+                class="benefit-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                ></path>
+              </svg>
+              <h3>24/7 Support Access</h3>
+              <p>
+                Get full access to our customer support team during your trial
+                period for any assistance needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="how-it-works">
+        <div class="container">
+          <div class="section-header">
+            <h2>How to Get Started with Your Free Trial</h2>
+            <p>
+              Follow these simple steps to begin your 24-hour free IPTV trial.
+            </p>
+          </div>
+
+          <div class="steps-container">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Fill the Form</h3>
+              <p>
+                Complete the trial request form with your basic information.
+              </p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Check Email</h3>
+              <p>Receive login credentials and setup instructions via email.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Setup Device</h3>
+              <p>
+                Follow our simple setup guide to configure your preferred
+                device.
+              </p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>Enjoy IPTV</h3>
+              <p>
+                Start streaming thousands of channels and VOD content instantly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trial Form Section -->
+      <section id="trial-form" class="trial-form-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Request Your Free 24-Hour IPTV Trial</h2>
+            <p>
+              Fill out the form below to get instant access to your free trial.
+              No credit card required.
+            </p>
+          </div>
+
+          <div class="trial-form-container">
+            <form class="trial-form" id="trialForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="device">Primary Device</label>
+                <select id="device" name="device" required>
+                  <option value="">Select your primary device</option>
+                  <option value="firestick">Amazon Firestick</option>
+                  <option value="android">Android TV Box</option>
+                  <option value="smarttv">Smart TV</option>
+                  <option value="ios">iPhone/iPad</option>
+                  <option value="android-mobile">Android Phone/Tablet</option>
+                  <option value="windows">Windows PC</option>
+                  <option value="mac">Mac</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="referral">How did you hear about us?</label>
+                <select id="referral" name="referral">
+                  <option value="">Select an option</option>
+                  <option value="search">Search Engine</option>
+                  <option value="social">Social Media</option>
+                  <option value="friend">Friend/Family</option>
+                  <option value="review">Review Site</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Start My Free Trial
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>
+              Hear from users who started with a free trial and became loyal
+              customers.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">
+                I was skeptical at first, but the free trial convinced me. The
+                channel quality and reliability are outstanding. No more
+                buffering issues like I had with my previous provider.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img
+                    src="assets/images/placeholder-user.jpg"
+                    alt="User Avatar"
+                  />
+                </div>
+                <div class="author-info">
+                  <h4>Michael T.</h4>
+                  <p>Customer for 8 months</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">
+                The free trial let me test everything before committing. I was
+                impressed by the channel selection and video quality. Their
+                customer support was also very helpful during setup.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img
+                    src="assets/images/placeholder-user.jpg"
+                    alt="User Avatar"
+                  />
+                </div>
+                <div class="author-info">
+                  <h4>Sarah K.</h4>
+                  <p>Customer for 1 year</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">
+                After trying several IPTV services, NakedTurtle stands out for
+                its stability and channel variety. The free trial was a great
+                way to see the difference before subscribing.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img
+                    src="assets/images/placeholder-user.jpg"
+                    alt="User Avatar"
+                  />
+                </div>
+                <div class="author-info">
+                  <h4>David R.</h4>
+                  <p>Customer for 6 months</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo">
-                    <p>Premium IPTV streaming service with 15,000+ channels, 50,000+ movies & shows, and 99.9% uptime.
-                    </p>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="assets/images/UpdatedLogo.svg" alt="NakedTurtle Logo" />
+            <p>
+              Premium IPTV streaming service with 25,000+ channels, 50,000+
+              movies & shows, and 99.9% uptime.
+            </p>
+          </div>
 
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="index.html#features">Features</a></li>
-                            <li><a href="index.html#pricing">Pricing</a></li>
-                            <li><a href="index.html#faq">FAQ</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-links-column">
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="terms.html">Terms of Service</a></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                            <li><a href="setup.html">Setup Guide</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-links-column">
-                        <h3>Connect</h3>
-                        <ul>
-                            <li><a href="https://discord.gg/nakedturtle" target="_blank"
-                                    rel="noopener noreferrer">Discord</a></li>
-                            <li><a href="https://t.me/TurtleIPTV_Bot" target="_blank"
-                                    rel="noopener noreferrer">Telegram</a></li>
-                            <li><a href="mailto:support@nakedturtle.com">Email Support</a></li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="footer-links">
+            <div class="footer-links-column">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2023-2025 NakedTurtle. All rights reserved.</p>
-                <p class="disclaimer">NakedTurtle is a service provider and does not host any content. All channels and
-                    content are provided by third parties.</p>
+            <div class="footer-links-column">
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="setup.html">Setup Guide</a></li>
+              </ul>
             </div>
+
+            <div class="footer-links-column">
+              <h3>Connect</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://discord.gg/nakedturtle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/TurtleIPTV_Bot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Telegram</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:support@nakedturtle.com">Email Support</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023-2025 NakedTurtle. All rights reserved.</p>
+          <p class="disclaimer">
+            NakedTurtle is a service provider and does not host any content. All
+            channels and content are provided by third parties.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript Files -->
     <script src="js/main.js"></script>
     <script>
-        // Trial form submission
-        document.addEventListener('DOMContentLoaded', function () {
-            const trialForm = document.getElementById('trialForm');
+      // Trial form submission
+      document.addEventListener("DOMContentLoaded", function () {
+        const trialForm = document.getElementById("trialForm");
 
-            if (trialForm) {
-                trialForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
+        if (trialForm) {
+          trialForm.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
 
-                    // In a real implementation, you would send this data to a server
-                    // For now, we'll just show a success message
-                    alert(`Thank you, ${name}! Your free trial request has been submitted. Please check your email at ${email} for login credentials and setup instructions.`);
+            // In a real implementation, you would send this data to a server
+            // For now, we'll just show a success message
+            alert(
+              `Thank you, ${name}! Your free trial request has been submitted. Please check your email at ${email} for login credentials and setup instructions.`
+            );
 
-                    // Reset form
-                    trialForm.reset();
-                });
-            }
-        });
+            // Reset form
+            trialForm.reset();
+          });
+        }
+      });
     </script>
-    <script
-        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
-</body>
-
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "08ed7fdb-7966-47f3-8335-786e0e0d453f";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  </body>
 </html>
