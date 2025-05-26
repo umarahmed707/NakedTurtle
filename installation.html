@@ -24,11 +24,12 @@
         font-family: Arial, sans-serif;
       }
       a {
-        color: #22d3ee;
+        color: var(--color-text);
         text-decoration: none;
+        transition: color 0.3s ease;
       }
       a:hover {
-        text-decoration: underline;
+        color: #10b981;
       }
 
       /* Container */
@@ -1011,7 +1012,9 @@
         <!-- Column 3: Contact & Legal -->
         <div class="footer-section">
           <h4>Contact Us</h4>
-          <p>support@nakedturtleiptv.com</p>
+          <a href="mailto:contact@nakedturtleiptv.com"
+            >contact@nakedturtleiptv.com
+          </a>
           <p>24/7 Live Chat Support</p>
           <h4>Legal</h4>
           <ul>
